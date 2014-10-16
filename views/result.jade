@@ -1,0 +1,79 @@
+html
+	head
+		meta(http-equiv="Content-Type",content="text/html; charset=utf-8")
+		title RESULT
+		link(rel="stylesheet",type="text/css",href="css/base.css")
+		link(rel="stylesheet",type="text/css",href="css/result.css")
+	body
+		a(class="nav-handler" href="/index") Create
+		section#resultset
+			p Results
+			div#toollist
+				a#diff-handler(class="icon24" href="javascript:;" target="_blank" title="对比工具") 
+				a#showChart(class="icon24" href="javascript:;" target="_blank" title="图表绘制") 
+				a#clear(class="icon24" href="javascript:;" target="_blank" onclick="idCtrl.clear();"  title="清除所选项") 
+			div.line
+			ul#resultlist
+					
+			-if(pageNum>1)
+				div#pager
+					a.prev-a(href="javascript:;" onclick="pageCtrl.prev()") 上一页
+					input(type="text" value="1")
+					a.go-a(href="javascript:;" onclick="pageCtrl.go()") Go
+					a.next-a(href="javascript:;" onclick="pageCtrl.next()") 下一页
+			div#panel
+				header Result Detail 
+				div.info
+					span 测试版本：
+					span#version-span EN
+					br
+					span 测试描述：
+					span#desc-span something
+					br
+					span 测试时间：
+					span#time-span something
+				input(type='text' id="searchInput" class="search-box" placeholder="搜索case")
+				article
+					span.type PASS
+					span(class="num green") 0
+					div.border-green
+				article
+					span.type FAIL
+					span(class="num red") 0
+					div.border-red
+					ul#fail-ul
+				article
+					span.type CRASH
+					span(class="num yellow") 0
+					div.border-yellow
+					ul#crash-url
+				article
+					span.type NOTEXT
+					span(class="num blue") 0
+					div.border-blue
+					ul#notext-url
+			div#li-temp(style="display:none")
+				li.result-item(id="{id}")
+					input.result-item-checkbox(type="checkbox" onclick="check(this);")
+					span {apkname}
+					span &nbsp;&nbsp;&nbsp;&nbsp;module: 
+					span {module}
+					span &nbsp;(
+					span {passed + failed + nontext + crashed}
+					span ,
+					span.green {passed}
+					span ,
+					span.red {failed}
+					span ,
+					span.yellow {crashed}
+					spam ,
+					span.blue {nontext}
+					span ) 
+					//- span &nbsp;&nbsp;on&nbsp;&nbsp;
+					//- span= results[i].time.toLocaleDateString()
+					a.show-detail-handler(href="javascript:;" title="详情" data-id="{id}")
+		</div>
+		script(src="js/jquery.js")
+		script(src="js/Chart.js")
+		script(src="js/mychart.js")
+		script(src="js/result.js")

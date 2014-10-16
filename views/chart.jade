@@ -1,0 +1,40 @@
+html
+	head
+		meta(http-equiv="Content-Type",content="text/html; charset=utf-8")
+		title DIFF
+		link(rel="stylesheet",type="text/css",href="css/base.css")
+		style.
+			
+	body	
+		script(src="js/jquery.js")
+		script.
+			var ids = location.href.split('?')[1].split('=')[1].split(',');
+			
+			$.each(ids, function(i, id){
+				$.each(orders, function(ind, order){
+					$.ajax({
+						url: '/data/r'+id+'/'+order
+					})
+					.done(function(txt){
+						var items = txt
+							.replace(/[\n|\s]+/g, ',')
+							.replace(/^,|,$/g, '')
+							.replace(/\/storage\/emulated\/0\/webkit\/layout_tests/g, '')
+							.split(',');
+						var key = _orders[ind];
+						data[key][id] = items;
+						done();
+					});
+				})
+			});
+			var diff = function(arr1, arr2){
+				var arrStr = arr1.join(','), res = [];
+				$.each(arr2, function(i, a){
+					if(!~arrStr.indexOf(a)){
+						res.push(a);
+					}
+				});
+				return res;
+			}
+
+			

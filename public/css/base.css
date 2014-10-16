@@ -1,0 +1,111 @@
+body{
+	font-family: Helvetica Neue, Hiragino Sans GB, Microsoft Yahei, WenQuanYi Micro Hei, sans-serif;
+	padding: 30px;
+	color:#666;
+}
+
+.clearfix:after {
+	content: ".";
+	display: block;
+	height: 0;
+	clear: both;
+	visibility: hidden;
+}
+
+a {
+	color: #666;
+}
+
+a:hover {
+	color: #999;
+}
+
+ul {
+	margin: 0;
+	padding: 0;
+}
+
+li {
+	list-style: none;
+}
+
+.border-green {
+	border-bottom: 3px dashed rgba(183, 217, 103, 0.5);
+}
+
+.border-red {
+	border-bottom: 3px dashed #f38283;
+}
+
+.border-blue {
+	border-bottom: 3px dashed #a3e6f8;
+}
+
+.border-yellow {
+	border-bottom: 3px dashed #fed174;
+}
+
+.green {
+	color: #b7d967;
+}
+
+.blue {
+	color: #a3e6f8;
+}
+
+.purple {
+	color: #c7b3ef;
+}
+
+.red{
+	color: #f38283;
+}
+
+.yellow {
+	color: #fed174;
+}
+
+.darkblue {
+	background: #acc7bf;
+	color: white;
+}
+
+.gray {
+	background: #a7b3c2 !important;
+	color: #999;
+}
+
+.icon24 {
+	width: 24px;
+	height: 24px;
+	background-size: 24px 24px;
+}
+
+.green-legend {
+	background-color: rgba(92,184,92,0.4);
+	width: 20px;
+	height: 20px;
+	margin-left: 20px;
+	display: inline-block;
+}
+
+.red-legend {
+	background-color: rgba(217,83,79,0.4);
+	width: 20px;
+	display: inline-block;
+	height: 20px;
+	margin-left: 20px;
+}
+
+.legend-text {
+	display: inline-block;
+	color: #aaa;
+	margin-left: 6px;
+}
+
+.nav-handler {
+	display: block;
+	position: absolute;
+	top: 10px;
+	right: 20px;
+}

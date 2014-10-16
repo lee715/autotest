@@ -1,0 +1,167 @@
+#resultset {
+			width: 70%;
+			margin-left: 5%;
+			position: relative;
+		}
+		.line {
+			width: 80%;
+			border-top: 1px dashed #ccc;
+			margin: 10px 0;
+		}
+		.show-detail-handler{
+			display: inline-block;
+			background-image: url('../image/info-black.png');
+			background-color: #fff;
+			width: 14px;
+			height: 14px;
+			margin-left: 6px;
+		}
+		#panel{
+			width: 800px;
+			right: -800px;
+			position: fixed;
+			top: 0;
+			bottom: 0;
+			background-color: #fff;
+			border: 0 none;
+			box-shadow: 0 7px 21px rgba(0,0,0,0.15);
+			backface-visibility: hidden;
+			box-sizing: border-box;
+			-webkit-transition-property: right;
+            -webkit-transition-duration: 0.5s;
+            -webkit-transition-timing-function: ease;
+            overflow: auto;
+		}
+		.r0 {
+			right: 0 !important;
+		}
+		#panel header {
+			position: relative;
+			background-color: #fafafa;
+			border-bottom: 1px solid rgba(0,0,0,0.07);
+			padding: 30px;
+			font-size: 24px;
+			font-weight: bold;
+			color: #666;
+		}
+		#panel article {
+			padding: 10px 30px;
+		}
+		.num {
+			cursor: pointer;
+			font-size: 30px;
+			font-weight: bold;
+			margin-left: 0.5em;
+			text-align: right;
+			float: right;
+			margin-top: -10px;
+			-webkit-user-select: none;
+		    -moz-user-select: none;
+		    -ms-user-select: none;
+		    user-select: none;
+		}
+		.num:hover {
+			opacity: 0.8;
+		}
+		.type {
+			font-weight: bold;
+			color: #999;
+			font-size: 20px;
+			line-height: 30px;
+		}
+		article ul {
+			display: none;
+			color: #999;
+			padding: 10px;
+		}
+
+		article .file{
+			background-image: url('../image/file.png');
+			background-size: 16px 16px; 
+			background-repeat: no-repeat;
+			display: inline-block;
+			width: 16px;
+			height: 16px;
+			margin-left: 6px;
+			cursor: pointer;
+		}
+		.show ul {
+			display: block;
+		}
+		.info {
+			background: #fafafa;
+			border: 1px solid #d9d9d9;
+			margin: 20px 30px;
+			padding: 10px;
+			color: #999;
+		}
+.search-box {
+	display: block;
+	margin: auto;
+	width: 80%;
+	border: none;
+	color: #999;
+	text-align: center;
+	padding: 8px;
+	margin-top: 6px;
+}
+
+#pager input {
+	width: 30px;
+	text-align: center;
+	border: 1px solid #ccc;
+	padding: 6px 2px;
+	margin-left: 10px;
+	margin-right: 4px;
+}
+
+.go-a {
+	margin-right: 10px;
+}
+
+#diff-handler {
+	display: inline-block;
+	background-image: url('../image/diff.png'); 
+}
+
+#showChart {
+	display: inline-block;
+	background-image: url('../image/chart.png'); 
+	margin-left: 20px;
+}
+
+#clear {
+	display: inline-block;
+	background-image: url('../image/clear.png'); 
+	margin-left: 20px;
+}
+
+#toollist {
+	display: block;
+	position: absolute;
+	right: 20%;
+	top: 4px;
+}
+
+.chartWrapper {
+	padding: 30px 50px 30px 50px;
+	box-shadow: 0 0 10px 4px rgba(0, 0, 0, .04);
+	background-color: white;
+	position: absolute;
+	top: 40%;
+	left: 50%;
+	margin-top: -250px;
+	margin-left: -300px;
+}
+
+.chartWrapper .close-handler {
+	position: absolute;
+	top: 0px;
+	right: 20px;
+	font-size: 40px;
+	color: #aaa;
+	cursor: pointer;
+}
+.chartWrapper .close-handler:hover {
+	color: #999;
+}

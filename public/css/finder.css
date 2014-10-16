@@ -1,0 +1,62 @@
+.finder-box {
+	border:1px solid #ccc;
+}
+.header-box {
+	margin: 10px;
+}
+.main-box {
+	width: 100%px;
+	height: 450px;
+	
+	overflow: auto;
+}
+.search-box {
+	display: block;
+	margin: auto;
+	width: 80%;
+	border: none;
+	color: #999;
+	text-align: center;
+	padding: 8px;
+	margin-top: 6px;
+}
+.line {
+	width: 80%;
+	border-top: 1px dashed #ccc;
+	margin: 10px auto;
+}
+.folder-box, .file-box {
+	width: 80%;    
+	margin: auto;
+}
+.item {
+	text-indent: 26px;
+	background-image: url(../image/folder.png);
+	background-repeat: no-repeat;
+	color: #666;
+	line-height: 24px;
+	-webkit-user-select: none;
+	user-select: none;
+	cursor: pointer;
+	overflow: hidden;
+	white-space: nowrap;  
+	-o-text-overflow: ellipsis;  
+	text-overflow: ellipsis;
+}
+.item:hover {
+	color: #999;
+}
+.folder-item {
+	background-size: 24px 24px;
+	background-image: url(../image/folder.png);
+	background-position: 0 0; 
+}
+.file-item {
+	background-size: 20px 20px;
+	background-image: url(../image/file.png);
+	background-position: 0 2px; 
+}
+.check {
+	background-image: url(../image/yes.png);
+	background-size: 20px 20px;
+}

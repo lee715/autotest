@@ -1,0 +1,78 @@
+html
+	head
+		meta(http-equiv="Content-Type",content="text/html; charset=utf-8")
+		title RESULT
+		link(rel="stylesheet",type="text/css",href="css/base.css")
+		link(rel="stylesheet",type="text/css",href="css/finder.css")
+		link(rel="stylesheet",type="text/css",href="css/create.css")
+	body
+		a(class="nav-handler" href="/result") Result
+		section#create_test_section
+			form(action="/create" method="POST" enctype="multipart/form-data")
+				h3 创建测试
+				div.form-div
+					label 测试次数：
+					input.form-item(type="text" name="times")
+				div.form-div
+					label 测试版本：
+					input.form-item(type="text" name="version") 
+				div.form-div
+					label APK来源：
+					//- input(type="radio" name="source" value="url" onclick="apkSource('url');") 
+					//- 提供APK直接下载地址
+					//- input(type="radio" name="source" value="upload" onclick="apkSource('upload');") 
+					//- 上传APK
+					//- br
+					//- input(id="apk_url_inp" name="apk_url" class="apk_source_inp form-item" type="text" placeholder="输入apk地址")
+					input(id="apk_upload_inp" name="apk_file" class="apk_source_inp" type="file")
+				//- div.form-div
+				//- 	label 标签：
+				//- 	input.form-item(type="text")
+				div.form-div
+					label 描述：
+					input.form-item(type="text" name="desc")
+				//- div.form-div
+				//- 	label 测试类型：
+				//- 	select(name="type" onchange="onTypeChange(this);")
+				//- 		option(value="web") 网站性能测试
+				//- 		option(value="layout") layout测试
+				div(class="finder-box form-div")
+				div
+					input.btn(type="submit" id="edit_submit" name="submit" value="提交")
+		script(src="js/jquery.js")
+		script(src="js/caseFinder.js")
+		script.
+			var gFinder; 
+			//- var apkSource = function(type){
+			//- 	$('.apk_source_inp').hide();
+			//- 	$('#apk_'+type+'_inp').show();
+			//- };
+			//- var onTypeChange = function(el){
+			//- 	if(el.value == 'layout'){
+			//- 		if(!gFinder){
+			//- 			gFinder = new Finder($('.finder-box'));
+			//- 		}
+			//- 		gFinder.$el.show();
+			//- 	}else{
+			//- 		gFinder && gFinder.$el.hide();
+			//- 	}
+			//- }
+			var Data = {};
+			$.ajax({
+				url: '/read'
+			})
+			.done(function(data){
+				if(data == {}){
+					$.ajax({
+						url: '/refresh'
+					})
+					.done(function(){
+						Data = data;
+						gFinder = new Finder($('.finder-box'));
+						gFinder.$el.show();
+					});
+				}
+				Data = data;
+				gFinder = new Finder($('.finder-box'));
+				gFinder.$el.show();
+			})
