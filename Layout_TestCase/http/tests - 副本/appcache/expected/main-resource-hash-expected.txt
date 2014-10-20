@@ -1,0 +1,6 @@
+Test that offline applications' main myrs are not affected by URL hashes.
+
+Should say SUCCESS:
+
+SUCCESS
+  

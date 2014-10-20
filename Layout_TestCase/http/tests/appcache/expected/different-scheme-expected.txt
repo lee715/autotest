@@ -1,0 +1,3 @@
+Test that application cache doesn't block loading myrs with different schemes.
+
+SUCCESS

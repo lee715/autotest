@@ -1,0 +1,46 @@
+<html>
+<head>
+	<title></title>
+	<style type="text/css">
+	.green {
+		color: green;
+	}
+	.red {
+		color: red;
+	}
+	</style>
+</head>
+<body>
+
+<script type="text/javascript">
+function supportCss3(style) {
+	var prefix = ['webkit', 'Moz', 'ms', 'o'],
+		i,
+		humpString = [],
+		htmlStyle = document.documentElement.style,
+		_toHumb = function (string) {
+			return string.replace(/-(\w)/g, function ($0, $1) {
+				return $1.toUpperCase();
+			});
+		};
+ 
+	for (i in prefix)
+		humpString.push(_toHumb(prefix[i] + '-' + style));
+ 
+	humpString.push(_toHumb(style));
+ 
+	for (i in humpString)
+		if (humpString[i] in htmlStyle) return true;
+ 
+	return false;
+}
+var css3 = 'animation animation-name animation-duration animation-timing-function animation-delay animation-iteration-count animation-direction animation-play-state animation-fill-mode background-clip background-origin background-size border-bottom-left-radius border-bottom-right-radius border-image border-image-outset border-image-repeat border-image-slice border-image-source border-image-width border-radius border-top-left-radius border-top-right-radius box-decoration-break box-shadow overflow-x overflow-y overflow-style rotation rotation-point color-profile bookmark-label bookmark-level bookmark-target float-offset hyphenate-after hyphenate-before hyphenate-character hyphenate-lines hyphenate-resource hyphens image-resolution marks string-set box-align box-direction box-flex box-flex-group box-lines box-ordinal-group box-orient box-pack crop move-to page-policy grid-columns grid-rows target target-name target-new target-position marquee-direction marquee-play-count marquee-speed marquee-style column-count column-fill column-gap column-rule column-rule-color column-rule-style column-rule-width column-span column-width columns fit fit-position image-orientation page size hanging-punctuation punctuation-trim text-align-last text-emphasis text-justify text-outline text-overflow text-shadow text-wrap word-break word-wrap transform transform-origin transform-style perspective perspective-origin backface-visibility transition transition-property transition-duration transition-timing-function transition-delay transition-delay box-sizing icon nav-down nav-index nav-left nav-right nav-up outline-offset resize'.split(' ');
+var str = '<div style="font-weight:bold">CSS3 Support</div><ul>';
+for(var i=0,l=css3.length;i<l;i++){
+	str += '<li>'+css3[i]+' : '+ (supportCss3(css3[i])?'<span  class="green">PASS</span>':'<span class="red">FAIL</span>')+'</li>';
+}
+str += '</ul>';
+document.write(str);
+</script>
+</body>
+</html>

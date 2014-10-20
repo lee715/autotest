@@ -1,0 +1,128 @@
+﻿abort-crash.html
+请求abort后强制垃圾回收不会导致浏览器崩溃
+true
+
+abort-should-cancel-load.html
+请求abort时，资源的加载应该取消
+false（需要打开调试器，查看资源加载情况，建议删除）
+
+abort-should-destroy-responseText.html
+请求abort时，responseText应该被清除
+true
+
+access-control-allow-lists-starting-with-comma.html
+以逗号开头的allow list应该被正确解析
+true
+
+access-control-and-redirects-async.html
+异步XMLHTTPRequest在处理跳转时，遵循CORS准则
+true
+
+access-control-and-redirects.html
+即使设置了access control，异源间的跳转也是不被允许的
+true
+
+access-control-basic-allow-access-control-origin-header-data-url.html
+data url 中的跨域请求是默认允许的
+true
+
+access-control-basic-allow-access-control-origin-header.html
+access-control-basic-allow-async.html
+access-control-basic-allow-star.html
+access-control-basic-allow.html
+设置了access control的跨域请求是允许的
+true
+
+access-control-basic-allow-preflight-cache-invalidation-by-header.html
+access-control-basic-allow-preflight-cache-invalidation-by-method.html
+access-control-basic-allow-preflight-cache-timeout.html
+access-control-basic-allow-preflight-cache.html
+access-control-basic-allow-preflight-cache.html
+非法的header，延时和method不会影响跨域请求（？）
+true
+
+？access-control-basic-denied.html
+  access-control-basic-get-fail-non-simple.html
+  access-control-basic-non-simple-allow-async.html
+
+authorization-header.html
+Authorization头可以通过setRequestHeader方法设置
+true
+
+basic-auth-default.html
+证书会先发，不会等待401请求结果
+true
+
+basic-auth-nopassword.html
+basic-auth-nouser.html
+XMLHttpRequest authentication只输账户或密码
+true
+
+binary-x-user-defined.html
+XMLHttpRequest不支持可以帮助二进制数据加载的字符集“x-user-defined”
+true
+
+broken-xml-encoding.html
+错误编码的XML资源能通过XMLHttpRequest恢复
+true
+
+cache-headers-after-reload.html
+页面加载，发送请求，请求完成后reload页面，第二次请求从cache中获取
+true
+
+cache-override.html
+重写header后XMLHTTPRequest的cache的行为
+true
+
+chunked-progress-event-expectedLength.html
+progress事件中，如果预期的整体长度无法计算，total属性将为0
+true
+
+close-window.html
+context销毁时，XMLHttpRequest的声明无效
+true
+
+connection-error-sync.html
+异步XMLHttpRequest请求遇到无限跳转循环时的行为
+true
+
+cookies.html
+XMLHttpRequest不会处理set-cookie头
+true
+
+cross-origin-authorization-with-embedder.html
+跨域授权应返回401或报错
+true
+
+cross-origin-authorization.html
+cross-origin-no-authorization.html
+不同的方式访问受保护的跨域资源
+true
+
+cross-origin-cookie-storage.html
+不发送证书时，cookie亦不会发送，发送证书时，cookie才会发送
+true
+
+cross-origin-no-credential-prompt.html
+跨域请求不会弹出授权窗
+true
+
+
+
+cross-origin-preflight-get.html？
+
+xmlhttprequest-responseXML-xml-text-responsetype.html
+测试加载XML文档
+auto: true
+need cross: false
+
+xmlhttprequest-set-responsetype.html
+设置不支持的responseType不会报错
+auto: true
+need cross: false
+
+xmlhttprequest-withcredentials-before-open.html
+xmlhttprequest的withcredentials属性可以在OPENED状态前修改
+auto: true
+need cross: false
+

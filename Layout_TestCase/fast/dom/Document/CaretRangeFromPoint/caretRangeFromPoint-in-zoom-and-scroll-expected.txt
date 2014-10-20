@@ -1,0 +1,1 @@
+A long text to test document caretRangeFromPoint. Test scroll, zoom, zoomAndScroll .................................... The End

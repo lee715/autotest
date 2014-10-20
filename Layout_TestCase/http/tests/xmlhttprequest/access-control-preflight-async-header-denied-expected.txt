@@ -1,0 +1,4 @@
+CONSOLE MESSAGE: XMLHttpRequest cannot load http://172.16.7.123/test/jetpacktest/Layout_TestCase/http/tests/xmlhttprequest/resources/access-control-preflight-denied-xsrf.php?state=header. Request header field X-NON-STANDARD is not allowed by Access-Control-Allow-Headers.
+PASS: Request successfully blocked.
+
+

@@ -1,0 +1,4 @@
+CONSOLE MESSAGE: XMLHttpRequest cannot load http://172.16.7.123/test/jetpacktest/Layout_TestCase/http/tests/xmlhttprequest/resources/access-control-preflight-denied-xsrf.php?state=method. Method DELETE is not allowed by Access-Control-Allow-Methods.
+PASS: Request successfully blocked.
+
+

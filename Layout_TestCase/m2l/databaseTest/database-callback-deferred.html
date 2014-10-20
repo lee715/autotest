@@ -1,0 +1,23 @@
+<html>
+<script>
+if (window.testRunner){
+	testRunner.dumpAsText();
+	testRunner.waitUntilDone();
+}
+function test() {
+
+    function transactionCallback()
+    {
+        document.getElementById("results").innerHTML = "PASS";
+        if (window.testRunner){
+			testRunner.notifyDone();
+		}
+    }
+    var db = openDatabase("DatabaseCallbackDeferred", "1.0", "", 1);
+    db.transaction(function(tx) { tx.executeSql("CREATE TABLE IF NOT EXISTS CallbackDeferredTest (randomData)", []); }, transactionCallback, transactionCallback);
+}
+</script>
+<body onload="test()">
+<p id="results">Wait...</p>
+</body>
+</html>

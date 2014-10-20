@@ -1,0 +1,56 @@
+<p>Tests the special case of whitelisting all origins.</p>
+
+<pre id="console"></pre>
+<script>
+testRunner.dumpAsText();
+testRunner.waitUntilDone();
+testRunner.addOriginAccessWhitelistEntry("http://http://172.16.7.123/test/jetpacktest/Layout_TestCase/http/tests", "http", "", true);
+testRunner.addOriginAccessWhitelistEntry("http://172.16.7.123/test/jetpacktest/Layout_TestCase/http/tests", "http", "", true);
+
+function log(message)
+{
+    document.getElementById('console').appendChild(document.createTextNode(message + '\n'));
+}
+
+function testDomain()
+{
+    var url = "http://172.16.7.123/test/jetpacktest/Layout_TestCase/http/tests/xmlhttprequest/resources/get.txt";
+    log("Testing: " + url + " (sync)");
+    var req = new XMLHttpRequest();
+    req.open("GET", url, false);
+    try {
+        req.send(null);
+        log("PASS: " + req.responseText);
+    } catch (e) {
+        log("FAIL: " + e);
+    }
+
+    log("Testing: " + url + " (async)");
+    req = new XMLHttpRequest();
+    req.open("GET", url, true);
+    req.onload = function() {
+        log("PASS: " + req.responseText);
+        testIPAddress();
+    };
+    req.onerror = function() {
+        log("FAIL: " + req.status);
+        testIPAddress();
+    };
+    req.send(null);
+}
+
+function testIPAddress()
+{
+    var iframe = document.createElement("iframe");
+    document.body.appendChild(iframe);
+    iframe.src = "http://172.16.7.123/test/jetpacktest/Layout_TestCase/http/tests/xmlhttprequest/resources/origin-whitelisting-ip-address-test.html";
+    window.addEventListener("message", function(e) {
+        if (e.data == "DONE")
+            testRunner.notifyDone();
+        else
+            log(e.data);
+    }, false);
+}
+
+testDomain();
+</script>

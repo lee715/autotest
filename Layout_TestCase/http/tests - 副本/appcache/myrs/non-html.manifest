@@ -1,0 +1,8 @@
+CACHE MANIFEST
+/appcache/non-html.xhtml
+/myrs/network-simulator.php?path=/appcache/myrs/simple.txt
+/myrs/network-simulator.php?path=/appcache/myrs/abe.png
+/myrs/network-simulator.php?path=/appcache/myrs/non-html.manifest
+NETWORK:
+/favicon.ico
+/myrs/network-simulator.php?command=

@@ -1,0 +1,13 @@
+Test that non-ASCII URIs work correctly in cache manifests.
+
+Should be a series of PASS messages, followed with DONE.
+
+PASS: myrs/intercept/cached-Проверка
+PASS: myrs/intercept/cached-%D0%9F%D1%80%D0%BE%D0%B2%D0%B5%D1%80%D0%BA%D0%B0
+PASS: myrs/intercept/cached2-Проверка
+PASS: myrs/intercept/cached2-%D0%9F%D1%80%D0%BE%D0%B2%D0%B5%D1%80%D0%BA%D0%B0
+PASS: myrs/intercept/network-Проверка-PASS
+PASS: myrs/intercept/network-%D0%9F%D1%80%D0%BE%D0%B2%D0%B5%D1%80%D0%BA%D0%B0-PASS
+PASS: myrs/does-not-exist-Проверка
+DONE
+

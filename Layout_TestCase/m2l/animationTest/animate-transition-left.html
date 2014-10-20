@@ -1,0 +1,49 @@
+<!DOCTYPE html PUBLIC "-//W3C//DTD HTML 4.01 Transitional//EN"
+   "http://www.w3.org/TR/html4/loose.dtd">
+
+<html lang="en">
+<head>
+    <meta http-equiv="Content-Type" content="text/html; charset=utf-8">
+    <title>Transition of left property</title>
+    <style>
+         #target {
+             position: relative;
+             left: 100px;
+             top:50px;
+             height: 100px;
+             width: 100px;
+             background-color: #9bb;
+             -webkit-transition-property: left;
+             -webkit-transition-duration: 1s;
+         }
+     </style>
+     
+</head>
+<body>
+    <div id="target">
+    </div>
+    <div id="results"></div>
+    <script type="text/javascript" src="../js/util.js"></script>
+    <script type="text/javascript" charset="utf-8">
+      if (window.testRunner){
+          testRunner.dumpAsText();
+          testRunner.waitUntilDone();
+      }
+      var el = document.getElementById('target');
+      testAnimating(function(){
+        el.style.left = '200px';
+      }, function(){
+        return pure(getComputedStyle(el).left);
+      }, 1, [100,200], function(res){
+        if(res){
+          markPass();
+        }else{
+          markFail();
+        }
+        if (window.testRunner){
+          testRunner.notifyDone();
+        }
+      });
+     </script>
+</body>
+</html>

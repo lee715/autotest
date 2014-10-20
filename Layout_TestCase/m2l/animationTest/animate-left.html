@@ -1,0 +1,80 @@
+<!DOCTYPE html>
+<html lang="en">
+	<head>
+		<meta charset="utf-8" />
+
+		<!-- Always force latest IE rendering engine (even in intranet) & Chrome Frame
+		Remove this if you use the .htaccess -->
+		<meta http-equiv="X-UA-Compatible" content="IE=edge,chrome=1" />
+
+		<title>Animation Test</title>
+		<!-- <meta name="viewport" content="width=device-width initial-scale=1.0" /> -->
+
+		<style type="text/css">
+		ol li{
+			margin:5px;
+		}
+		</style>
+
+		<!-- [2] -->
+		<style>
+         .left{
+             position: relative;
+             left: 50px;
+             height: 100px;
+             width: 100px;
+             background-color: #9bb;
+             -webkit-animation-name: bounce;
+             -webkit-animation-duration: 2s;
+             -webkit-animation-iteration-count: infinite;
+             -webkit-animation-direction: alternate;
+             -webkit-animation-timing-function: ease-in-out;
+         }
+         @-webkit-keyframes bounce {
+           from {
+             left: 50px;
+           }
+           to {
+             left: 150px;
+           }
+         }   
+         
+     </style>
+	</head>
+
+	<body>
+		<div id="animateDiv" class='left'>
+		</div>
+		<div id="results">test dont run</div>
+		<script type="text/javascript">
+ 			if (window.testRunner){
+				testRunner.dumpAsText();
+				testRunner.waitUntilDone();
+	        }
+	        var pure = function(str){
+	        	return Math.round(+str.replace('px', ''));
+	        };
+	        var aDiv = document.getElementById('animateDiv');
+	        var rDiv = document.getElementById('results');
+	        var l0 = pure(getComputedStyle(aDiv).left);
+	        var l500, l1000, l2000;
+	        setTimeout(function(){
+	        	l500 = pure(getComputedStyle(aDiv).left);
+	        }, 500);
+	        setTimeout(function(){
+	        	l1000 = pure(getComputedStyle(aDiv).left);
+	        }, 1000);
+	        setTimeout(function(){
+	        	l2000 = pure(getComputedStyle(aDiv).left);
+	        	if(l0 == 50 && l500>60 && l500<65 && l1000>95 && l1000<105 && l2000 == 150){
+		       		rDiv.innerHTML = 'PASS';
+		       	}else{
+		       		rDiv.innerHTML = 'FAIL';
+		       	}
+		       	if (window.testRunner){
+					testRunner.notifyDone();
+		        }
+	        }, 2000);
+		</script>
+	</body>
+</html>

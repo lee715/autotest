@@ -1,0 +1,23 @@
+CONSOLE MESSAGE: XMLHttpRequest cannot load http://172.16.7.123/test/jetpacktest/Layout_TestCase/http/tests/xmlhttprequest/resources/access-control-allow-lists.php. Origin http://http://172.16.7.123/test/jetpacktest/Layout_TestCase/http/tests is not allowed by Access-Control-Allow-Origin.
+Test verifies that content MIME type is set correctly when Blob is sent using XMLHttpRequest synchronously.
+
+On success, you will see a series of "PASS" messages, followed by "TEST COMPLETE".
+
+
+PASS expectedMimeType is "text/plain;charset=utf-8"
+PASS expectedMimeType is ""
+PASS expectedMimeType is ""
+PASS expectedMimeType is ""
+PASS expectedMimeType is ""
+PASS expectedMimeType is ""
+PASS expectedMimeType is ""
+PASS expectedMimeType is ""
+PASS expectedMimeType is "multipart/mixed;boundary=\"--blob-boundary\""
+PASS expectedMimeType is ""
+PASS expectedMimeType is ""
+PASS Exception should be thrown.
+PASS expectedMimeType is "text/plain;charset=utf-8"
+PASS successfullyParsed is true
+
+TEST COMPLETE
+

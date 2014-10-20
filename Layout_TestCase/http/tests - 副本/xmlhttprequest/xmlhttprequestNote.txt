@@ -1,0 +1,33 @@
+abort-crash.html
+abort一个XMLHttpRequest不会引起崩溃
+true
+
+abort-should-cancel-load.html
+调用abort会使XHR对象停止对资源的加载
+true
+
+abort-should-destroy-responseText.html
+XMLHttpRequest.abort()会移除responseText
+true
+
+access-control-allow-lists-starting-with-comma.html
+allow list已逗号开始时，可以被正确解析
+true
+
+access-control-and-redirects-async.html
+异步XMLHTTPRequest在处理跳转时，遵循CORS基准
+true
+
+access-control-and-redirects.html
+不同源的地址间不能相互跳转，即使设置了access control
+true
+
+access-control-basic-allow-access-control-origin-header-data-url.html
+access-control-basic-allow-access-control-origin-header.html
+data url中和普通脚本中，accesscontrol为*时访问非同源地址的结果
+true
+
+access-control-basic-allow-async.html
+
+
+

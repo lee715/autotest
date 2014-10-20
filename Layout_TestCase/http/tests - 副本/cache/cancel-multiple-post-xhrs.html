@@ -1,0 +1,27 @@
+<body>
+<script>
+if (window.testRunner) {
+    testRunner.dumpAsText();
+    testRunner.dumpResourceLoadCallbacks();
+}
+
+var xhrs = new Array(3);
+for (var i = 0; i < 3; i++) {
+    xhrs[i] = new XMLHttpRequest();
+    xhrs[i].open("POST", 'resources/empty.txt', true);   
+    xhrs[i].send(i);
+}
+
+for (var i = 0; i < 3; i++)
+	xhrs[i].abort();
+
+var res = 3;
+for (var i = 0; i < 3; i++)
+	if(xhrs[i].readyState == 0)
+		res--; 
+if(!res)
+	document.write('PASS');
+else
+	document.write('FAIL');
+</script>
+</body>

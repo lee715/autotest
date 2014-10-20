@@ -1,0 +1,2 @@
+RewriteEngine on
+RewriteRule ^.* /appcache/myrs/print-uri.php [L,NS]

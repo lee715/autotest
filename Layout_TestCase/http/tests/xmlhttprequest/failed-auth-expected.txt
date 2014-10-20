@@ -1,0 +1,8 @@
+http://http://172.16.7.123/test/jetpacktest/Layout_TestCase/http/tests/xmlhttprequest/resources/basic-auth/basic-auth.php?uid=login3 - didReceiveAuthenticationChallenge - Simulating cancelled authentication sheet
+http://badname:passpw@http://172.16.7.123/test/jetpacktest/Layout_TestCase/http/tests/xmlhttprequest/resources/basic-auth/basic-auth.php?uid=login4 - didReceiveAuthenticationChallenge - Simulating cancelled authentication sheet
+Test for bug 13075: XMLHttpRequest with failed authentication should set status to 401.
+
+Sync, no credentials: OK
+Sync, incorrect credentials: OK
+Async, no credentials: OK
+Async, incorrect credentials: OK

@@ -1,0 +1,59 @@
+<p>Tests origin whitelisting subdomain behavior.</p>
+
+<pre id="console"></pre>
+<script>
+testRunner.dumpAsText();
+testRunner.waitUntilDone();
+testRunner.addOriginAccessWhitelistEntry("http://http://172.16.7.123/test/jetpacktest/Layout_TestCase/http/tests", "http", "localhost", true);
+
+function log(message)
+{
+    document.getElementById('console').appendChild(document.createTextNode(message + '\n'));
+}
+
+function test(url, expectSuccess)
+{
+    log("Testing: " + url + " (sync)");
+    var req = new XMLHttpRequest();
+    req.open("GET", url, false);
+    try {
+        req.send(null);
+        log((expectSuccess ? "PASS: " : "FAIL: ") + req.responseText);
+    } catch (e) {
+        log((expectSuccess ? "FAIL: " : "PASS: ") + e);
+    }
+
+    log("Testing: " + url + " (async)");
+    req = new XMLHttpRequest();
+    req.open("GET", url, true);
+    req.onload = function() {
+        log((expectSuccess ? "PASS: " : "FAIL: ") + req.responseText);
+        nextTest();
+    };
+    req.onerror = function() {
+        log((expectSuccess ? "FAIL: " : "PASS: ") + req.status);
+        nextTest();
+    };
+    req.send(null);
+}
+
+var tests = [
+    ["http://172.16.7.123/test/jetpacktest/Layout_TestCase/http/tests/xmlhttprequest/resources/get.txt", true]
+    // FIXME: Is it possible to setup the following tests?
+    // ["http://foo.172.16.7.123/test/jetpacktest/Layout_TestCase/http/tests/xmlhttprequest/resources/get.txt", true]
+    // ["http://bar.foo.172.16.7.123/test/jetpacktest/Layout_TestCase/http/tests/xmlhttprequest/resources/get.txt", true]
+    // ["http://foo172.16.7.123/test/jetpacktest/Layout_TestCase/http/tests/xmlhttprequest/resources/get.txt", false]
+];
+
+var currentTest = 0;
+
+function nextTest()
+{
+    if (currentTest < tests.length)
+        test.apply(null, tests[currentTest++]);
+    else
+        testRunner.notifyDone();
+}
+
+nextTest();
+</script>

@@ -1,0 +1,33 @@
+Tests that asynchronous XMLHttpRequests handle redirects according to the CORS standard.
+
+Testing resources/redirect-cors.php?url=http://172.16.7.123/test/jetpacktest/Layout_TestCase/http/tests/xmlhttprequest/resources/access-control-basic-allow-star.cgi
+Expecting success: false
+PASS: 0
+Testing resources/redirect-cors.php?url=http://172.16.7.123/test/jetpacktest/Layout_TestCase/http/tests/xmlhttprequest/resources/access-control-basic-allow-star.cgi&  access-control-allow-origin=http://172.16.7.123/test/jetpacktest/Layout_TestCase/http/tests&  access-control-allow-credentials=true
+Expecting success: false
+PASS: 0
+Testing resources/redirect-cors.php?url=http://172.16.7.123/test/jetpacktest/Layout_TestCase/http/tests/xmlhttprequest/resources/access-control-basic-allow.cgi&  access-control-allow-origin=http://172.16.7.123/test/jetpacktest/Layout_TestCase/http/tests&  access-control-allow-credentials=true
+Expecting success: false
+PASS: 0
+Testing http://172.16.7.123/test/jetpacktest/Layout_TestCase/http/tests/xmlhttprequest/resources/redirect-cors.php?url=http://172.16.7.123/test/jetpacktest/Layout_TestCase/http/tests/xmlhttprequest/resources/access-control-basic-allow-star.cgi
+Expecting success: false
+PASS: 0
+Testing http://172.16.7.123/test/jetpacktest/Layout_TestCase/http/tests/xmlhttprequest/resources/redirect-cors.php?url=http://172.16.7.123/test/jetpacktest/Layout_TestCase/http/tests/xmlhttprequest/resources/access-control-basic-allow-star.cgi&  access-control-allow-origin=http://172.16.7.123/test/jetpacktest/Layout_TestCase/http/tests
+Expecting success: true
+FAIL: 0
+Testing http://172.16.7.123/test/jetpacktest/Layout_TestCase/http/tests/xmlhttprequest/resources/redirect-cors.php?url=http://username:password@172.16.7.123/test/jetpacktest/Layout_TestCase/http/tests/xmlhttprequest/resources/access-control-basic-allow-star.cgi&  access-control-allow-origin=http://172.16.7.123/test/jetpacktest/Layout_TestCase/http/tests
+Expecting success: false
+PASS: 0
+Testing http://172.16.7.123/test/jetpacktest/Layout_TestCase/http/tests/xmlhttprequest/resources/redirect-cors.php?url=foo://bar.cgi&  access-control-allow-origin=http://172.16.7.123/test/jetpacktest/Layout_TestCase/http/tests
+Expecting success: false
+PASS: 0
+Testing http://172.16.7.123/test/jetpacktest/Layout_TestCase/http/tests/xmlhttprequest/resources/redirect-cors.php?redirect-preflight=true&  url=http://172.16.7.123/test/jetpacktest/Layout_TestCase/http/tests/xmlhttprequest/resources/access-control-basic-allow-star.cgi&  access-control-allow-origin=*
+Expecting success: false
+PASS: 0
+Testing http://172.16.7.123/test/jetpacktest/Layout_TestCase/http/tests/xmlhttprequest/resources/redirect-cors.php?redirect-preflight=false&  url=http://172.16.7.123/test/jetpacktest/Layout_TestCase/http/tests/xmlhttprequest/resources/access-control-basic-allow-star.cgi&  access-control-allow-origin=*&  access-control-allow-headers=x-webkit
+Expecting success: false
+PASS: 0
+Testing resources/redirect-cors.php?url=http://http://172.16.7.123/test/jetpacktest/Layout_TestCase/http/tests/xmlhttprequest/resources/get.txt
+Expecting success: true
+PASS: PASS
+
