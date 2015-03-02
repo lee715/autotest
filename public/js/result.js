@@ -23,7 +23,8 @@ var template = function(temp, data){
 var Data = {
 	get: function(id){
 		return pageCtrl.getById(id);
-	}
+	},
+	cur: null
 };
 
 // id controller
@@ -146,6 +147,12 @@ if($pageCtrl.length){
 		render: function(arr){
 			var str = '', temp = this.temp;
 			$.each(arr, function(i, d){
+				if(d.desc == 'retest'){
+					d.module = d.module.split(/\s+/g)[0];
+				}
+				if(d.module.length > 80){
+					d.module = d.module.slice(0, 80)+'......';
+				}
 				str += template(temp, d);
 			});
 			$('#resultlist').html(str);
@@ -165,12 +172,19 @@ if($pageCtrl.length){
 };
 
 // search related
-var temp = '<li><span>{name}</span><a target="_blank" href="{url}" class="file"></a></li>';
+var temp = '<li><span>{name}</span><a target="_blank" href="{url}" class="file"></a><a target="_blank" href="{origUrl}" class="file"></a><a target="_blank" href="{retest}" class="retest"></a></li>';
 var renderItems = function(arr){
 	var str = ''; 
 	$.each(arr, function(ind, data){
 		var url = ('/getByDir?id='+idCtrl.cur+'&dir='+data).replace(/\.[a-zA-Z0-9]+$/, '-result.txt');
-		str += temp.replace('{name}', data).replace('{url}', url);
+		var origUrl = data.replace('_fast', 'fast').replace('/fast','/172.17.100.196/fast').replace(/\.[a-zA-Z0-9]+$/, '-expected.txt');
+		var cur = Data.cur;
+		var retest = '/retest?version='+cur.version+'&apkname='+cur.apkname+'&module='+data;
+		str += temp
+			.replace('{name}', data)
+			.replace('{url}', url)
+			.replace('{origUrl}', origUrl)
+			.replace('{retest}', retest);
 	});
 	return str;
 };
@@ -182,6 +196,8 @@ var findType = function(){
 		type = 'blue';
 	}else if($el.hasClass('yellow')){
 		type = 'yellow';
+	}else if($el.hasClass('green')){
+		type = 'green';
 	}
 	return type;
 };
@@ -218,6 +234,7 @@ var check = function(el){
 var showPanel = function(el){
 	var id = $(el).data('id');
 	var data = Data.get(id);
+	Data.cur = data;
 	if(data){
 		$('#panel .green').html(data.passed ||0);
 		$('#panel .red').html(data.failed || 0);
@@ -242,7 +259,8 @@ $(document).click(function(e){
 var map = {
 	'red': 'layout_tests_failed.txt',
 	'blue': 'layout_tests_nontext.txt',
-	'yellow': 'layout_tests_crashed.txt'
+	'yellow': 'layout_tests_crashed.txt',
+	'green': 'layout_tests_passed.txt'
 }
 $('.num').click(function(){
 	var self = this;
@@ -254,6 +272,8 @@ $('.num').click(function(){
 		type = 'blue';
 	}else if($(this).hasClass('yellow')){
 		type = 'yellow';
+	}else if($(this).hasClass('green')){
+		type = 'green';
 	}
 	if(!$(this).parent().hasClass('show') && !$(this).hasClass('ulInited')){
 		$.ajax({

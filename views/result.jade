@@ -21,6 +21,12 @@ html
 					input(type="text" value="1")
 					a.go-a(href="javascript:;" onclick="pageCtrl.go()") Go
 					a.next-a(href="javascript:;" onclick="pageCtrl.next()") 下一页
+			-else
+				div#pager(style="display:none")
+					a.prev-a(href="javascript:;" onclick="pageCtrl.prev()") 上一页
+					input(type="text" value="1")
+					a.go-a(href="javascript:;" onclick="pageCtrl.go()") Go
+					a.next-a(href="javascript:;" onclick="pageCtrl.next()") 下一页
 			div#panel
 				header Result Detail 
 				div.info
@@ -37,6 +43,7 @@ html
 					span.type PASS
 					span(class="num green") 0
 					div.border-green
+					ul#pass-ul
 				article
 					span.type FAIL
 					span(class="num red") 0
@@ -52,27 +59,28 @@ html
 					span(class="num blue") 0
 					div.border-blue
 					ul#notext-url
-			div#li-temp(style="display:none")
-				li.result-item(id="{id}")
-					input.result-item-checkbox(type="checkbox" onclick="check(this);")
-					span {apkname}
-					span &nbsp;&nbsp;&nbsp;&nbsp;module: 
-					span {module}
-					span &nbsp;(
-					span {passed + failed + nontext + crashed}
-					span ,
-					span.green {passed}
-					span ,
-					span.red {failed}
-					span ,
-					span.yellow {crashed}
-					spam ,
-					span.blue {nontext}
-					span ) 
-					//- span &nbsp;&nbsp;on&nbsp;&nbsp;
-					//- span= results[i].time.toLocaleDateString()
-					a.show-detail-handler(href="javascript:;" title="详情" data-id="{id}")
-		</div>
+				div#li-temp(style="display:none")
+					li.result-item(id="{id}")
+						input.result-item-checkbox(type="checkbox" onclick="check(this);")
+						span {apkname}
+						span &nbsp;&nbsp;&nbsp;&nbsp;module: 
+						span {module}
+						span &nbsp;(
+						span {passed + failed + nontext + crashed}
+						span ,
+						span.green {passed}
+						span ,
+						span.red {failed}
+						span ,
+						span.yellow {crashed}
+						spam ,
+						span.blue {nontext}
+						span ) 
+						span &nbsp;&nbsp;&nbsp;&nbsp;desc:
+						span {desc} 
+						//- span &nbsp;&nbsp;on&nbsp;&nbsp;
+						//- span= results[i].time.toLocaleDateString()
+						a.show-detail-handler(href="javascript:;" title="详情" data-id="{id}")
 		script(src="js/jquery.js")
 		script(src="js/Chart.js")
 		script(src="js/mychart.js")

@@ -85,6 +85,16 @@
 			margin-left: 6px;
 			cursor: pointer;
 		}
+		article .retest{
+			background-image: url('../image/redo.png');
+			background-size: 16px 16px; 
+			background-repeat: no-repeat;
+			display: inline-block;
+			width: 16px;
+			height: 16px;
+			margin-left: 6px;
+			cursor: pointer;
+		}
 		.show ul {
 			display: block;
 		}

@@ -1,0 +1,87 @@
+html
+	head
+		meta(http-equiv="Content-Type",content="text/html; charset=utf-8")
+		title DIFF
+		link(rel="stylesheet",type="text/css",href="css/base.css")
+		style.
+			table{
+				border:1px solid #ddd;
+				padding:4px;
+				float:left;
+				margin-left: 30px;
+			}
+			canvas{
+				float:left;
+			}
+			.clear{
+				clear:both;
+			}
+			table td{
+				text-align:center;
+			}
+	body
+		script(src="js/jquery.js")
+		script(src="js/Chart.js")
+		script(src="js/mychart.js")
+		script.
+			function drawOne(labels, doneArr, $el){
+				ChartCtrl.createBar(labels, doneArr, $el);
+				renderTable(labels, doneArr, $el);
+				$el.append('<div class="clear"></div>');
+			}
+			function format(todos){
+				var months = [];
+				var labels = {};
+				var objDone = {};
+				for(var i=0,l=todos.length;i<l;i++){
+					one = todos[i];
+					var date = new Date(one.doneTime);
+					var mon = date.getMonth()+1;
+					var year = date.getFullYear();
+					mon = year+'/'+mon;
+					if(!~months.join(',').indexOf(mon)){
+						months.push(mon);
+						labels[mon] = [one.owner];
+						objDone[mon] = {};
+						objDone[mon][one.owner] = 1;
+					}else if(!~(labels[mon].join(',').indexOf(one.owner))){
+						labels[mon].push(one.owner);
+						objDone[mon][one.owner] = 1;
+					}else{
+						objDone[mon][one.owner]++;
+					}
+				}
+				months.sort();
+				months.reverse();
+				for(var i=0,l=months.length;i<l;i++){
+					var doneArr = [];
+					var mon = months[i];
+					for(var j=0,m=labels[mon].length;j<m;j++){
+						var o = labels[mon][j];
+						doneArr.push(objDone[mon][o]);
+					}
+					var $el = $('<section></section>');
+					$el.html('<h4>'+mon+'月统计</h4>')
+					$el.addClass('month'+mon);
+					$('body').append($el);
+					drawOne(labels[mon], doneArr, $el);
+				}
+			}
+			$.ajax({
+				url: '/fetchDoneTask'
+			})
+			.done(function(res){
+				format(res);
+			});
+			var renderTable = function(labels, doneArr, $el){
+				var str = '<table><tr><td>owner</td><td>progress</td></tr>';
+				$.each(labels, function(ind, label){
+					var doneNum = doneArr[ind];
+					str += '<tr><td>'+label+'</td><td>'+doneNum+'</td></tr>';
+				});
+				str += '</table>';
+				$el.append(str);
+			}
+			
+
+			

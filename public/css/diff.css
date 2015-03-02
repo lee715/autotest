@@ -24,3 +24,13 @@ ul {
 .case {
 	
 }
+
+#reviewTable {
+	border: 1px solid #ccc;
+	padding: 4px;
+}
+
+#reviewTable td {
+	text-align: center;
+	padding: 2px;
+}

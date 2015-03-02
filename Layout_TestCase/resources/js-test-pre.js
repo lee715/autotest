@@ -1,6 +1,6 @@
 // svg/dynamic-updates tests set enablePixelTesting=true, as we want to dump text + pixel results
-if (self.testRunner)
-    testRunner.dumpAsText(self.enablePixelTesting);
+if (window.testRunner)
+    testRunner.dumpAsText(window.enablePixelTesting);
 
 var description, debug, successfullyParsed, errorMessage, silentTestPass, didPassSomeTestsSilently, didFailSomeTests;
 
@@ -87,7 +87,7 @@ didFailSomeTests = false;
     if (!isWorker())
         insertStyleSheet();
 
-    self.onerror = function(message)
+    window.onerror = function(message)
     {
         errorMessage = message;
     };
@@ -99,7 +99,7 @@ function isWorker()
     // It's conceivable that someone would stub out 'document' in a worker so
     // also check for childNodes, an arbitrary DOM-related object that is
     // meaningless in a WorkerContext.
-    return (typeof document === 'undefined' || typeof document.childNodes === 'undefined') && !!self.importScripts;
+    return (typeof document === 'undefined' || typeof document.childNodes === 'undefined') && !!window.importScripts;
 }
 
 function descriptionQuiet(msg) { description(msg, true); }
@@ -689,7 +689,7 @@ function dfgCompiled(argument)
 
 function dfgIncrement(argument)
 {
-    if (!self.testRunner)
+    if (!window.testRunner)
         return argument.i;
     
     if (argument.i < argument.n)
@@ -706,7 +706,7 @@ function dfgIncrement(argument)
 
 function noInline(theFunction)
 {
-    if (!self.testRunner)
+    if (!window.testRunner)
         return;
     
     testRunner.neverInlineFunction(theFunction);
@@ -730,16 +730,16 @@ function isSuccessfullyParsed()
 function finishJSTest()
 {
     wasFinishJSTestCalled = true;
-    if (!self.wasPostTestScriptParsed)
+    if (!window.wasPostTestScriptParsed)
         return;
     isSuccessfullyParsed();
-    if (self.jsTestIsAsync && self.testRunner)
+    if (window.jsTestIsAsync && window.testRunner)
         testRunner.notifyDone();
 }
 
 function startWorker(testScriptURL, shared)
 {
-    self.jsTestIsAsync = true;
+    window.jsTestIsAsync = true;
     debug('Starting worker: ' + testScriptURL);
     var worker = shared ? new SharedWorker(testScriptURL, "Shared Worker") : new Worker(testScriptURL);
     worker.onmessage = function(event)
@@ -777,9 +777,9 @@ function startWorker(testScriptURL, shared)
 }
 
 if (isWorker()) {
-    var workerPort = self;
-    if (self.name == "Shared Worker") {
-        self.onconnect = function(e) {
+    var workerPort = window;
+    if (window.name == "Shared Worker") {
+        window.onconnect = function(e) {
             workerPort = e.ports[0];
             workerPort.onmessage = function(event)
             {

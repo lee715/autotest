@@ -26,6 +26,7 @@ var done = function(){
 		//- renderUl($('#nontextD ul'), diff(data.nontext[ids[0]], data.nontext[ids[1]]));
 		//- renderUl($('#crashP ul'), diff(data.crashed[ids[1]], data.crashed[ids[0]]));
 		//- renderUl($('#crashD ul'), diff(data.crashed[ids[0]], data.crashed[ids[1]]));
+		renderTablePassD(passD);
 	}
 }
 var renderUl = function($el, items, str){
@@ -98,7 +99,30 @@ var getStrByType = function(type){
 	}
 	return '<li>null</li>';
 };
+var renderTablePassD = function(list){
+	var str = '<tr><td colspan="6" style="text-align:left;">减少的成功项</td><tr>';
+	$.each(list, function(ind, item){
+		str += '<tr><td colspan="6" style="text-align:left;">'+item+'</td><tr>';
+	});
+	$('#reviewTable').append(str);
+}
 $.each(ids, function(i, id){
+	$.ajax({
+		url: '/getResultById',
+		data: {
+			id: id
+		}
+	})
+	.done(function(res){
+		var str = '<tr>';
+		str += '<td>'+res.version+'</td>'+
+				'<td>'+(res.passed+res.failed+res.crashed+res.nontext)+'</td>'+
+				'<td>'+res.passed+'</td>'+
+				'<td>'+res.failed+'</td>'+
+				'<td>'+res.crashed+'</td>'+
+				'<td>'+res.nontext+'</td></tr>';
+		$('#reviewTable').append(str);
+	})
 	$.each(orders, function(ind, order){
 		$.ajax({
 			url: '/getByDir',
@@ -118,7 +142,8 @@ $.each(ids, function(i, id){
 			data[key][id] = items;
 			done();
 		});
-	})
+	});
+	
 });
 var diff = function(arr1, arr2){
 	var arrStr = arr1.join(','), res = [];

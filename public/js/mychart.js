@@ -2,6 +2,7 @@ var ChartCtrl =
 	
 	(function(){
 
+
 		var Color = {
 			map: {
 				passed: 'green',
@@ -44,14 +45,41 @@ var ChartCtrl =
 			}
 		}
 
+		
+
 		var myChart = {
 			create: function(arr){
-				var data = this.parse(arr);
+				var data = this.parseLine(arr);
 				this.render();
 				var ctx = $("#canvas")[0].getContext("2d");
 				new Chart(ctx).Line(data);
 			},
-			parse: function(arr){
+			createBar: function(labels, doneArr, el){
+				var data = this.parseBar(labels, doneArr);
+				var canv = document.createElement('canvas');
+				var ctx = canv.getContext("2d");
+				new Chart(ctx).Bar(data);
+				(el?$(el):$(body)).append(canv);
+			},
+			parseBar: function(labels, doneArr){
+				var data = {
+					labels: [],
+					datasets: [
+						{
+							label: 'done',
+							fillColor : "rgba(220,220,220,.5)",
+							strokeColor: "rgba(220,220,220,.8)",
+							highlightFill: "rgba(220,220,220,.75)",
+							highlightStroke: "rgba(220,220,220,1)",
+							data: []
+						}
+					]
+				};
+				data.labels = labels;
+				data.datasets[0].data = doneArr;
+				return data;
+			},
+			parseLine: function(arr){
 				var data = {
 					labels: [],
 					datasets: [

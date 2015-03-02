@@ -56,3 +56,11 @@ label,select, input {
 	top: 10px;
 	right: 20px;
 }
+
+#qinfo{
+	position:fixed;
+	width: 300px;
+}
+#qinfo span{
+	margin-left: 6px;
+}

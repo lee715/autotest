@@ -1,0 +1,22 @@
+html
+	head
+		meta(http-equiv="Content-Type",content="text/html; charset=utf-8")
+		title Faillist
+		link(rel="stylesheet",type="text/css",href="css/base.css")
+		style.
+			.bold {
+				font-weight: bold;
+			}
+	body
+		-for(var i=0,l=faillist.length;i<l;i++)
+			p 
+				span.bold case:&nbsp;
+				span= faillist[i][0]
+			p
+				span.red result:&nbsp;
+				span= faillist[i][1][0]
+			p
+				span.green expected:&nbsp;
+				span= faillist[i][1][1]
+
+		script(src="js/jquery.js")

@@ -6,6 +6,26 @@ html
 		link(rel="stylesheet",type="text/css",href="css/finder.css")
 		link(rel="stylesheet",type="text/css",href="css/create.css")
 	body
+		div#qinfo
+		div#qinfoTemp(style="display:none")
+			label 测试状态:
+			span#qinfoStatus {status}
+			br
+			label 测试进度:
+			span {progress}
+			br
+			label 队列任务数:
+			span {q}
+			br
+			label 测试版本:
+			span {version}
+			br
+			label 测试描述:
+			span {desc}
+			br
+			label 测试集合:
+			span {module}
+			br
 		a(class="nav-handler" href="/result") Result
 		section#create_test_section
 			form(action="/create" method="POST" enctype="multipart/form-data")
@@ -28,6 +48,9 @@ html
 				//- div.form-div
 				//- 	label 标签：
 				//- 	input.form-item(type="text")
+				div.form-div
+					label apk url：
+					input.form-item(type="text" name="url")
 				div.form-div
 					label 描述：
 					input.form-item(type="text" name="desc")
@@ -76,3 +99,35 @@ html
 				gFinder = new Finder($('.finder-box'));
 				gFinder.$el.show();
 			})
+			var template = function(temp, data){
+				return temp.replace(/\{[a-zA-Z0-9_-]+\}/g, function(ma){
+					ma = ma.replace(/\{|\}/g, '');
+					return data[ma] || '/';
+				});
+			};
+			var temp = $('#qinfoTemp').html();
+			$.ajax({
+				url: '/refreshStatus'
+			})
+			.done(function(info){
+				info.progress = info.done?(info.done + '/' + info.total):'/';
+				info.q = info.q || 0;
+				info.module = (info.module.length > 80)?info.module.slice(0, 80):info.module;
+				$('#qinfo').html(template(temp, info));
+				if(info.status == 'free'){
+					$('#qinfoStatus').addClass('green');
+				}
+			});
+			setInterval(function(){
+				$.ajax({
+					url: '/refreshStatus'
+				})
+				.done(function(info){
+					info.progress = info.done?(info.done + '/' + info.total):'/';
+					info.q = info.q || 0;
+					$('#qinfo').html(template(temp, info));
+					if(info.status == 'free'){
+						$('#qinfoStatus').addClass('green');
+					}
+				});
+			}, 3000);

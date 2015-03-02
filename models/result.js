@@ -11,7 +11,7 @@ var ResultSchema = new Schema({
 	time: {type: Date, default: Date.now},
 	module: String,
 	apkname: String,
-	json: String
+	json: Buffer
 });
 
 mongoose.model('Result', ResultSchema);

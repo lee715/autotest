@@ -18,14 +18,14 @@ var
 		this.$fileBox = $el.find('.file-box');
 		this.$searchBox = $el.find('.search-box');
 		this.$hiddenInp = $el.find('input[type="hidden"]');
-		this.navArr = ['Layout_TestCase'];
+		this.navArr = ['Layout_TestCase/172.17.100.196'];
 		this.refresh();
 		this.initEvents();
 	},
 
 	proty = {
 		show: function(){
-			this.navArr = ['Layout_TestCase'];
+			this.navArr = ['Layout_TestCase/172.17.100.196'];
 			this.refresh();
 			this.$el.show();
 		},
@@ -50,7 +50,7 @@ var
 				var $t = $(e.target);
 				if($t.hasClass('nav-item')){
 					self.nav($t.html());
-				}else if($t.hasClass('folder-item')){
+				}else if($t.hasClass('folder-item') || $t.hasClass('file-item')){
 					self.$el.find('.check').removeClass('check');
 					$t.addClass('check');
 					self.$hiddenInp.val(self.getChecked());
