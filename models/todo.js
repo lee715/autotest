@@ -9,7 +9,8 @@ var TodoSchema = new Schema({
 	expected: String,
 	result: String,
 	status: {type: String, default: 'open'},
-	doneTime: Date
+	doneTime: Date,
+	reviewed: {type: Boolean, default: false}
 });
 
 mongoose.model('Todo', TodoSchema);

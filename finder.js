@@ -1,3 +1,7 @@
+/*
+  finder.js is used for reading the base url, and getting the information of 
+  files and directories,which will be used by index page for choosing module.
+*/
 var config = require('./config.js'),
 	base = config.base_url,
 	fs = require('fs'),
@@ -41,6 +45,7 @@ var config = require('./config.js'),
 	};
 
 module.exports = {
+	// read the base url again and refresh the current cache(Data)
 	refresh: function(){ readdir(base) },
 	read: function(){
 		return Data

@@ -1,0 +1,42 @@
+程序启动：
+/home/baina/github/autotest目录下运行 node app.js
+
+路由：
+http://enginetest.baina.com:5000 提交测试页面
+http://enginetest.baina.com:5000/result 查看测试结果页面
+http://enginetest.baina.com:5000/report 查看case优化进度页面
+http://enginetest.baina.com:5000/daliyTask 待优化case集页面
+
+目录结构：
+Layout_TestCase  该目录下存放所有的测试用例
+libs 公共js库
+models 数据库模型
+node_modules node中间件
+public/
+    apks  apk源文件缓存，按日期缓存
+    css   样式文件
+    data  结果数据json文件
+    js    页面用到的脚本文件
+roots  控制器文件
+views  视图文件
+app.js 应用主文件
+config.js 配置文件
+data.js 将测试结果目录转换为json格式的结果数据，查询数据接口
+dumpRenderTreeRunner.js 控制dumpRenderTree运行相关
+queue.js 测试任务队列逻辑
+todo.js  测试优化自动化逻辑
+
+数据库操作：
+任意目录下运行 mongo 命令
+数据库操作语法参考：http://www.cnblogs.com/xusir/archive/2012/12/24/2830957.html
+
+已实现功能：
+启动测试： http://enginetest.baina.com:5000或build服务器发出请求
+测试进度： http://enginetest.baina.com:5000页面左上角
+结果对比： http://enginetest.baina.com:5000/result页面勾选2个版本后点击diff按钮,新版本先勾选
+结果信息查看： http://enginetest.baina.com:5000/result页面点击单条测试结果后的i图标
+半自动化case优化： http://enginetest.baina.com:5000/daliyTask?owner=yingjie&new=1&keyword=/css 
+				 其中new代表无论是否还有没有完成的任务都抓取新的任务，keyword代表获取任务时的关键字
+case优化进度查询： http://enginetest.baina.com:5000/report
+失败项重跑： 目前只重跑_fast下的测试（参见queue.js 196行）
+大集合分段： 目前是100条case一段，代码见dumpRenderTree.js 100行doOne方法

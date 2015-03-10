@@ -1,3 +1,6 @@
+/*
+  info.js holds the running informations of the current task.
+*/
 var _ = require('./libs/underscore.js');
 
 var info_default = {

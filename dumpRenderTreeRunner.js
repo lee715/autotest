@@ -1,3 +1,6 @@
+/*
+  dumprendertree.js is used for preparing the running list, starting the task and collecting the results.
+*/
 var fs = require('fs');
 var _ = require('./libs/underscore.js');
 var exec = require('child_process').exec;
@@ -22,12 +25,6 @@ var _run = function(module, cb){
 			console.log('run start');
 			Info.total(list.length);
 			runBy100(list, cb);
-			// exec(cmd, function(){
-			// 	console.log('done');
-			// 	doPull(function(err){
-			// 		cb();
-			// 	})
-			// });
 		})
 	})
 }
@@ -46,8 +43,11 @@ var run = function(module, cb){
 	})
 }
 
-var checkNum = 2; 
+// times to test
+var checkNum = 2;
+// list of success cases  
 var sTxt = '';
+// this function is used for checking the failed cases. 
 var check = function(module, cb, num){
 	if(num){
 		checkNum = num;
@@ -82,6 +82,7 @@ var urlPc2Mobile = function(url){
 	return url.replace(new RegExp(config.base_url, 'g'), '/storage/emulated/0/webkit/layout_tests');
 }
 
+// running the whole list 100 by 100
 var runBy100 = function(list, cb){
 	var sucCache = [];
 	var failCache = [];
@@ -114,6 +115,7 @@ var runBy100 = function(list, cb){
 			});
 		})
 	}
+	// collect the results from the mobile
 	var collectResults = function(cb){
 		console.log('start collectResults');
 		var count = 0;
@@ -182,7 +184,6 @@ var runBy100 = function(list, cb){
 	}
 	doOne();
 }
-
 var doRm = function(){
 	exec('adb shell rm /sdcard/layout_tests_passed.txt');
 	exec('adb shell rm /sdcard/layout_tests_failed.txt');
@@ -201,6 +202,7 @@ var doPull = function(cb){
 	})
 }
 
+// write list to list.txt which will be used by dumpRenderTree later.
 var writeList = function(list, cb){
 	list = list.join("\t\r\n").replace(new RegExp(config.base_url, 'g'), '/storage/emulated/0/webkit/layout_tests');
 	fs.writeFile('list.txt', list, function(err){
@@ -220,7 +222,7 @@ var collectList = function(module, cb, times){
 	console.log('collect list');
 	var dir = config.base_url+'/'+module;
 	var list = '';
-	
+	// if module is a name of directory, read it
 	if(!~module.indexOf('.')){
 		// list = module.replace(/\/storage\/emulated\/0\/webkit\/layout_tests/g);
 		finder.readDirAll(dir, function(dirs){

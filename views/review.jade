@@ -1,0 +1,26 @@
+html
+	head
+		meta(http-equiv="Content-Type",content="text/html; charset=utf-8")
+		title REVIEW
+		link(rel="stylesheet",type="text/css",href="css/base.css")
+		style.
+			.l10{
+				margin-left: 10px;
+			}
+			.green {
+				color: #b7d967;
+			}
+	body
+		each todo in todos
+			li
+				span=todo.path
+				span.l10 owner:
+				span=todo.owner
+				a(class="l10 green" href="/retest?version=test&apkname=&module="+todo.path,target="_blank") check
+				a(class="l10 green" href="/markReviewed?id="+todo.id+'&pass=1',target="_blank") pass
+				a(class="l10 red" href="/markReviewed?id="+todo.id+'&pass=0',target="_blank") fail
+		script(src="js/jquery.js")
+			
+			
+
+			

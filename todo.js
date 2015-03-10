@@ -1,3 +1,6 @@
+/*
+  case optimization related logics
+*/
 var fs = require('fs');
 var _ = require('./libs/underscore.js');
 var Models = require('./models/index.js');
@@ -52,13 +55,18 @@ var makeTodoModule = function(module){
 
 module.exports = {
 	makeTodoModule: makeTodoModule,
-	pushToMobile: function(path, cb){
+	// push case and related txt to mobile
+	pushToMobile: function(path, cb, is_Fast){
 		console.log(path);
 		exec('cd Layout_TestCase;cd 172.17.100.196;svn update;', function(err){
 			if(err) console.log(err);
-			var  command1 = 'adb push '+config.base_url+path+' /sdcard/webkit/layout_tests'+path;
 			var expath = path2expath(path);
-			var command2 = 'adb push '+config.base_url+expath+' /sdcard/webkit/layout_tests'+expath;
+			var pathFrom = config.base_url+path;
+			var pathTo = is_Fast?path.replace('/fast/', '/_fast/'):path;
+			var expathFrom = config.base_url+expath;
+			var expathTo = is_Fast?expath.replace('/fast/', '/_fast/'):expath;
+			var  command1 = 'adb push '+pathFrom+' /sdcard/webkit/layout_tests'+pathTo;
+			var command2 = 'adb push '+expathFrom+' /sdcard/webkit/layout_tests'+expathTo;
 			var err = null;
 			exec(command1, function(e){
 				if(e) err = e;
@@ -81,6 +89,7 @@ module.exports = {
 			})
 		})
 	},
+	// add obj to todo.txt
 	merge: function(obj){
 		var data = getData();
 		obj = obj || {};
@@ -100,9 +109,15 @@ module.exports = {
 			delete data[key];
 		writeData(data);
 	},
-	getDaliyTask: function(owner, cb){
+	getDaliyTask: function(owner, key, cb){
 		var num = 20;
-		TodoModel.find({owner:'0', status:'open'}).limit(num).exec(function(err, todos){
+		var opts;
+		if(key){
+			opts = {owner:'0', status:'open', path: new RegExp(key)};
+		}else{
+			opts = {owner:'0', status:'open'};
+		}
+		TodoModel.find(opts).exec(function(err, todos){
 			if(err){
 				console.log(err);
 				cb('err in find');
@@ -115,6 +130,8 @@ module.exports = {
 			}
 		})
 	},
+	// store the cases in todo.txt to mongodb and clear the todo.txt
+	// this work should be done on Monday for statistics
 	toDB: function(){
 		var obj = this.get();
 		var keys = this.getItems();
@@ -129,6 +146,7 @@ module.exports = {
 					if(err) console.log(err);
 					console.log('no err '+index);
 					todo = todo[0];
+					// if case is already in db
 					if(todo){
 						if(todo.status == 'done' && !isInThisWeek(todo.time)){
 							todo.status = 'open';
@@ -137,6 +155,7 @@ module.exports = {
 							return;
 						}
 					}else{
+						// create a new one
 						console.log('no todo '+index);
 						var t = new TodoModel();
 						t.path = path;

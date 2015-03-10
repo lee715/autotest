@@ -9,6 +9,34 @@ var Result = Models.Result;
 var config = require('./config.js');
 var finder = require('./finder.js');
 
+var str = 'alignment,animation,autoresize,backgrounds,beacon,block,body-propagation,borders,box-decoration-break,box-shadow,box-sizing,canvas,clip,compact,constructors,cookies,cpu,css,css-generated-content,css-grid-layout,css-intrinsic-dimensions,css3-text,doctypes,dom,domurl,dynamic,encoding,events,eventsource,fast-mobile-scrolling,files,filter-image,flexbox,forms,frames,gradients,harness,hidpi,history,html,images,ime,inline,inline-block,innerHTML,inspector-support,invalid,js,layers,layout,leaks,line-grid,lists,loader,masking,media,mediastream,multicol,notifications,overflow,pagination,parser,performance,plugins,preloader,profiler,reflections,regex,regions,repaint,replaced,ruby,scroll-behavior,scrolling,selectors,serviceworker,shapes,spatial-navigation,speech,speechsynthesis,storage,sub-pixel,svg,table,text,text-autosizing,tokenizer,transforms,url,viewport,workers,writing-mode,xmlhttprequest,xpath,xsl';
+var arr = str.split(',');
+var len = arr.length;
+var res = [];
+var total = 0;
+var timer = 0;
+arr.reverse();
+var doOne = function(){
+	len--;
+	if(~len){
+		var reg = new RegExp('fast\/'+arr[len]+'\/');
+		console.log(len+':'+reg);
+		Models.Todo.find({path: reg}).count().exec(function(err, c){
+			if(err) console.log(err);
+			var count = c;
+			console.log(count);
+			res.push(count);
+			total += count;
+			doOne();
+		});
+	}else{
+		console.log(res);
+		fs.writeFile('./test.txt', res.join(','));
+		console.log(total);
+	}
+};
+doOne();
+
 // var base = '/home/baina/github/autotest/layout-test-results';
 // exec('cd Layout_TestCase;cd 172.17.100.196;rm test.txt;')
 // finder.readDirAll('./Layout_TestCase/_fast', function(dirs){

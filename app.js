@@ -153,6 +153,7 @@ app.get('/getResultByApkAndModule', function(req, res){
 	})
 });
 
+//test a single case for 100 times.this api is used for testing cases failed last time.
 app.get('/retest', function(req, res){
 	var module = req.param('module');
 	var version = req.param('version');
@@ -184,6 +185,7 @@ app.get('/retest', function(req, res){
 	}
 });
 
+// get the info of the task queue
 app.get('/getQueueInfo', function(req, res){
 	var info = qCtrl.info();
 	res.json(info);
@@ -207,8 +209,8 @@ app.get('/index', function(req, res){
 	res.render('create.jade');
 });
 
+// result page
 app.get('/result', function(req, res){
-
 	Result.find({}, function(err, rs){
 		if(err) throw err;
 		console.log(rs.length);
@@ -217,6 +219,7 @@ app.get('/result', function(req, res){
 	});
 });
 
+// get results by page
 app.get('/fetchByPage', function(req, res){
 	var page = req.param('page') || 1;
 
@@ -230,10 +233,10 @@ app.get('/fetchByPage', function(req, res){
 	});
 });
 
+// diff page
 app.get('/diff', function(req, res){
 	res.render('diff.jade');
 });
-
 
 app.get('/getByDir', function(req, res){
 	var id = req.param('id');
@@ -307,12 +310,12 @@ app.get('/getNewTask', function(req,res){
 app.get('/daliyTask', function(req, res){
 	var owner = req.param('owner');
 	var getnew = req.param('new');
+	var keyword = req.param('keyword');
 	TodoModel.find({owner: owner, status: 'open'}).exec(function(err, todos){
 		if(todos.length && !getnew){
 			res.render('task.jade', {todos: todos});
 		}else{
-			Todo.getDaliyTask(owner, function(err, todos){
-				console.log(arguments);
+			Todo.getDaliyTask(owner, keyword, function(err, todos){
 				if(err)
 					res.send(err)
 				else
@@ -385,9 +388,6 @@ app.get('/refreshCase', function(req, res){
 	var path = req.param('path');
 	var owner = req.param('owner');
 	var module = path;
-	// if(path.charAt(0) == '/') module = path.slice(1);
-	//module = module.split('/').slice(0, -1).join('/');
-	//var url = 'http://172.16.7.25:1234/media/apk/DumpRenderTree-release-signed_20150116105242.apk';
 	var plan = {};
 	plan.version = '[test]';
 	plan.desc = '[test] '+owner;
@@ -402,13 +402,57 @@ app.get('/refreshCase', function(req, res){
 			while(times--) qCtrl.add(plan);
 			res.send('ok');
 		}
-			// Cache.get(url, function(file){
-			// 	plan.path = file.path;
-			// 	plan.apkname = file.name;
-				
-			// });
 	});
 });
+
+app.get('/review', function(req, res){
+	TodoModel.find({'status':'done', 'reviewed':false}).exec(function(err, todos){
+		if(err){
+			console.log(err);
+			res.send('err occurred');
+		}else if(!todos.length){
+			res.send('the list is empty!')
+		}else{
+			res.render('review.jade', {todos: todos});
+		}
+	})
+})
+
+app.get('/markReviewed', function(req, res){
+	var id = req.param('id');
+	var pass = !!req.param('pass');
+	TodoModel.findOne({_id: id}).exec(function(err, todo){
+		if(err){
+			console.log(err);
+			res.send(err);
+		}else{
+			if(pass){
+				todo.reviewed = true;
+				console.log(todo);
+				todo.save(function(){
+					Todo.pushToMobile(todo.path, function(err){
+						if(err)
+							res.send(err);
+						else{
+							res.send('done!');
+						}
+					}, true);
+				})
+			}else{
+				todo.reviewed = false;
+				todo.status = 'open';
+				todo.save(function(){
+					if(err)
+						res.send(err);
+					else{
+						res.send('done!');
+					}
+				});
+			}
+			
+		}
+	});
+})
 
 app.get('/refreshStatus', function(req, res){
 	res.json(Info.get());

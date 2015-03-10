@@ -1,4 +1,6 @@
-
+/*
+  queue.js is a controller for managing tasks.
+*/
 var exec = require('child_process').exec,
 	fs = require('fs'),
 	iconv = require('iconv-lite')
@@ -22,7 +24,7 @@ var exec = require('child_process').exec,
 	addtionCheckList = {},
 	addtionSuc = [],
 
-	// add plan to queue
+	// add task to the queue.
 	add = function(plan){
 		console.log('add check');
 		console.log(plan);
@@ -46,7 +48,6 @@ var exec = require('child_process').exec,
 	checkToRun = function(){
 		console.log('run check');
 		if(running || q.length == 0){
-			markFree();
 			return false;
 		}else{
 			console.log('run start');
@@ -154,13 +155,6 @@ var exec = require('child_process').exec,
 			Info.init();
 			run();
 		});
-		// fs.writeFile('./public/log.txt', addtionlog, function(err){
-		// 	if(err)
-		// 		console.log('write log error:'+err);
-		// 	else
-		// 		console.log('write log.txt ok!');
-		// });
-		
 	},
 
 	run = function(){

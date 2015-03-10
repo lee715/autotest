@@ -60,45 +60,9 @@ var store = function(callback, url){
 		// format and store failed ones
 		var dataObj = data;
 		if(dataObj['layout_tests_failed']){
-			// var failObj = {};
 			var failedtxt = dataObj['layout_tests_failed'].replace(/\/storage\/emulated\/0\/webkit\/layout_tests/g, '');
 			var crashtxt = dataObj['layout_tests_crashed'].replace(/\/storage\/emulated\/0\/webkit\/layout_tests/g, '');
 			var failList = failedtxt+"\t\r\n"+crashtxt;
-			// var failedArr = failedtxt.split(/\s+/g);
-			// var crashArr = crashtxt.length?crashtxt.split(/\s+/g):[];
-			// var arr = failedArr.concat(crashArr);
-			// delete failedtxt;
-			// delete crashtxt;
-			// delete failedArr;
-			// delete crashArr;
-			// console.log(arr.length+' failed');
-			// _.each(arr, function(item,ind){
-			// 	console.log(ind);
-			// 	if(item == '') return true;
-			// 	var expect = item.replace(/\.[a-zA-Z]+$/, function(ma){
-			// 		return '-expected.txt';
-			// 	});
-				// var result = item.split('.')[0]+'-result';
-				// var oriUrl = config.base_url+expect;
-				// var domains = clear(result).split('/');
-				// var val = getDataByDomains(dataObj, domains);
-				// var hasErr = false;
-				// var expectTxt = '';
-				// try{
-				// 	expectTxt = fs.readFileSync(oriUrl, 'utf8');
-				// }catch(e){
-				// 	hasErr = true;
-				// 	console.log('read file '+oriUrl+' failed.');
-				// }
-			// 	// if no error occurred and the result is not expected, store the result
-			// 	// !/Uncaught\s+TypeError|getByDir\s+err/.test(val) && 
-			// 	// if(!hasErr && !expectedEquarl(val, expectTxt)){
-			// 	// 	console.log('fail matched');
-			// 	// 	failObj[item] = [val, expectTxt];
-			// 	// }
-			// 	val = val.slice(0, expectTxt.length+100);
-			// 	failObj[item] = [val, expectTxt];
-			// });
 		}
 		callback(null, dataObj, failList);
 	};
@@ -128,16 +92,6 @@ var getByDir = function(id, dir){
 	var domains = clear(dir).split('/');
 	dataObj = getDataObj(id);
 	return getDataByDomains(dataObj, domains);
-	// Result.find({_id: id}, function(err, r){
-	// 	if(err) return;
-	// 	r = r[0];
-	// 	jsonfsCtrl.jsonfs2str(r._id, function(err, str){
-	// 		if(err) console.log('jsonfs2str err:'+err);
-	// 		console.log('callback:'+str);
-	// 		var obj = JSON.parse(str);
-	// 		callback(null, getDataByDomains(obj, domains));
-	// 	});
-	// });
 }
 
 // get helper
