@@ -1,0 +1,8 @@
+CONSOLE MESSAGE: line 26: Uncaught TypeError: Object [object Object] has no method 'scalePageBy'
+This tests that window.scrollBy respects the page's zoom and scale factor when scrolling.
+
+On success, you will see a series of "PASS" messages, followed by "TEST COMPLETE".
+
+
+Testing at zoom -1 and scale 1.2
+

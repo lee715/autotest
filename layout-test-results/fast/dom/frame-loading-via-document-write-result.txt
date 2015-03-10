@@ -1,0 +1,20 @@
+CONSOLE MESSAGE: line 37: Uncaught TypeError: Object [object Object] has no method 'pathToLocalResource'
+
+
+--------
+Frame: 'topRow'
+--------
+This page was successfully loaded.
+My protocol is file:
+My referrer is blank
+
+
+--------
+Frame: 'middleRow'
+--------
+
+
+--------
+Frame: 'bottomRow'
+--------
+

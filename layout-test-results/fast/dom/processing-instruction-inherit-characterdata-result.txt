@@ -1,0 +1,16 @@
+Test that ProcessingInstruction inherits from CharacterData
+
+On success, you will see a series of "PASS" messages, followed by "TEST COMPLETE".
+
+
+FAIL ProcessingInstruction.prototype.__proto__ should be [object Object]. Was [object Object].
+FAIL processingInstruction.__proto__.__proto__ should be [object Object]. Was [object Object].
+PASS processingInstruction.target is "target"
+PASS processingInstruction.data is "data"
+FAIL processingInstruction.length should be 4 (of type number). Was undefined (of type undefined).
+FAIL processingInstruction.data should be  (of type string). Was null (of type object).
+FAIL processingInstruction.length should be 0 (of type number). Was undefined (of type undefined).
+PASS successfullyParsed is true
+
+TEST COMPLETE
+

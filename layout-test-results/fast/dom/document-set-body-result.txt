@@ -1,0 +1,14 @@
+Tests setting document.body
+
+On success, you will see a series of "PASS" messages, followed by "TEST COMPLETE".
+
+
+FAIL document1.body = iframe1 should throw Error: HierarchyRequestError: DOM Exception 3. Threw exception Error: HIERARCHY_REQUEST_ERR: DOM Exception 3.
+PASS iframe1.parentNode is document.body
+FAIL document1.body = document1.createElement('iframe') should throw Error: HierarchyRequestError: DOM Exception 3. Threw exception Error: HIERARCHY_REQUEST_ERR: DOM Exception 3.
+PASS document1.body != document.body is true
+PASS document1.body is body1
+PASS successfullyParsed is true
+
+TEST COMPLETE
+

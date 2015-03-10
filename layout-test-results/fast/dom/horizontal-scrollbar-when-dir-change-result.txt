@@ -1,0 +1,6 @@
+original scroll x for RTL page : Failure, actual: 2626; expected: 0
+horizontal scroll x for RTL page : Failure, actual: 2626; expected: -100
+original scroll x for LTR page : Failure, actual: 2626; expected: 0
+horizontal scroll x for LTR page : Failure, actual: 2626; expected: 100
+
+

@@ -1,0 +1,5 @@
+FAIL children.namedItem('child') should be null (of type object). Was undefined (of type undefined).
+PASS successfullyParsed is true
+
+TEST COMPLETE
+

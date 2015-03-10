@@ -1,0 +1,8 @@
+**Test timeout
+CONSOLE MESSAGE: line 13: Uncaught TypeError: Object [object Object] has no method 'numberOfPendingGeolocationPermissionRequests'
+Tests that when a page is reloaded, the frame is properly detached from the Geolocation object to ensure that no permission requests are in progress.
+
+On success, you will see a series of "PASS" messages, followed by "TEST COMPLETE".
+
+
+

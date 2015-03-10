@@ -1,0 +1,2 @@
+CONSOLE MESSAGE: line 5: Uncaught Error: Error calling method on NPObject.
+

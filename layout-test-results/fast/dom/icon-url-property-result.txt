@@ -1,0 +1,4 @@
+CONSOLE MESSAGE: line 57: Uncaught TypeError: Cannot call method 'shortcutIconURLs' of undefined
+Original iconURL is: http://test.com/oldfavicon.ico
+Setting new icon URL to: http://test.com/newfavicon.ico
+New iconURL is: http://test.com/newfavicon.ico

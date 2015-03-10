@@ -1,0 +1,9 @@
+Makes sure that assigning to a DOM property directly on the prototype produces a silent error.
+
+On success, you will see a series of "PASS" messages, followed by "TEST COMPLETE".
+
+
+PASS successfullyParsed is true
+
+TEST COMPLETE
+

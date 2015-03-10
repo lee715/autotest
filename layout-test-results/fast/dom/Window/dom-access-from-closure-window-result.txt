@@ -1,0 +1,2 @@
+CONSOLE MESSAGE: line 5: Uncaught TypeError: Object [object Object] has no method 'setCloseRemainingWindowsWhenComplete'
+

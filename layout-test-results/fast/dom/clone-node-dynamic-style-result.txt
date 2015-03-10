@@ -1,0 +1,46 @@
+layer at (0,0) size 839x542
+  RenderView at (0,0) size 384x542
+layer at (0,0) size 384x542
+  RenderBlock {HTML} at (0,0) size 384x542
+    RenderBody {BODY} at (8,8) size 368x526
+      RenderBlock {H1} at (0,0) size 368x38
+        RenderText {#text} at (0,0) size 206x38
+          text run at (0,0) width 206: "Cloning nodes"
+      RenderBlock {DIV} at (0,59) size 368x39 [bgcolor=#FFFF00] [border: (2px ridge #000000)]
+        RenderInline {SPAN} at (0,0) size 829x35
+          RenderText {#text} at (2,2) size 62x35
+            text run at (2,2) width 62: "Bold"
+          RenderInline {SPAN} at (0,0) size 707x35
+            RenderText {#text} at (63,2) size 208x35
+              text run at (63,2) width 208: "Bold+Underline"
+            RenderInline {SPAN} at (0,0) size 276x35
+              RenderText {#text} at (270,2) size 276x35
+                text run at (270,2) width 276: "Bold+Underline+Italic"
+            RenderText {#text} at (545,2) size 225x35
+              text run at (545,2) width 225: "Bold+Uunderline"
+          RenderText {#text} at (769,2) size 62x35
+            text run at (769,2) width 62: "Bold"
+        RenderText {#text} at (0,0) size 0x0
+      RenderBlock (anonymous) at (0,98) size 368x19
+        RenderText {#text} at (0,0) size 209x19
+          text run at (0,0) width 209: "Cloned Node with deep=false"
+      RenderBlock {DIV} at (0,117) size 368x39 [bgcolor=#FFFF00] [border: (2px ridge #000000)]
+        RenderBR {BR} at (2,2) size 0x35
+      RenderBlock (anonymous) at (0,156) size 368x19
+        RenderText {#text} at (0,0) size 203x19
+          text run at (0,0) width 203: "Cloned Node with deep=true"
+      RenderBlock {DIV} at (0,175) size 368x39 [bgcolor=#FFFF00] [border: (2px ridge #000000)]
+        RenderInline {SPAN} at (0,0) size 829x35
+          RenderText {#text} at (2,2) size 62x35
+            text run at (2,2) width 62: "Bold"
+          RenderInline {SPAN} at (0,0) size 707x35
+            RenderText {#text} at (63,2) size 208x35
+              text run at (63,2) width 208: "Bold+Underline"
+            RenderInline {SPAN} at (0,0) size 276x35
+              RenderText {#text} at (270,2) size 276x35
+                text run at (270,2) width 276: "Bold+Underline+Italic"
+            RenderText {#text} at (545,2) size 225x35
+              text run at (545,2) width 225: "Bold+Uunderline"
+          RenderText {#text} at (769,2) size 62x35
+            text run at (769,2) width 62: "Bold"
+        RenderText {#text} at (0,0) size 0x0

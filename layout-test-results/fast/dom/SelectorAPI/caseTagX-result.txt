@@ -1,0 +1,7 @@
+PASS document.querySelector('div SPAN') is null
+FAIL document.getElementById('lower1').matches('div SPAN') should be false. Threw exception TypeError: Object #<HTMLSpanElement> has no method 'matches'
+PASS document.getElementById('lower1').webkitMatchesSelector('div SPAN') is false
+PASS successfullyParsed is true
+
+TEST COMPLETE
+

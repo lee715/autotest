@@ -1,0 +1,12 @@
+layer at (0,0) size 384x542
+  RenderView at (0,0) size 384x542
+layer at (0,0) size 384x542
+  RenderBlock {HTML} at (0,0) size 384x542
+    RenderBody {BODY} at (8,8) size 368x526
+      RenderBlock {P} at (0,0) size 368x38
+        RenderText {#text} at (0,0) size 302x38
+          text run at (0,0) width 302: "The text below should say \"document type"
+          text run at (0,19) width 63: "created\";"
+      RenderBlock {DIV} at (0,54) size 368x19
+        RenderText {#text} at (0,0) size 165x19
+          text run at (0,0) width 165: "document type created"

@@ -1,0 +1,7 @@
+ancestorOrigins.length = 0 
+
+--------
+Frame: ''
+--------
+ancestorOrigins.length = 1
+ancestorOrigins[0] = file://

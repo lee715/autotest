@@ -1,0 +1,37 @@
+CONSOLE MESSAGE: line 46: Uncaught ReferenceError: Map is not defined
+Tests that we clone object hierarchies
+
+PASS: 'postMessage((function(){}))' threw Error: DATA_CLONE_ERR: DOM Exception 25
+PASS: 'postMessage(var x = 0; try { eval("badref"); } catch(e) { x = e; } x)' threw Error: DATA_CLONE_ERR: DOM Exception 25
+PASS: 'postMessage(window)' threw Error: DATA_CLONE_ERR: DOM Exception 25
+PASS: 'postMessage(({get a() { throw "x" }}))' threw x
+PASS: eventData is null of type object
+PASS: eventData is undefined of type undefined
+PASS: eventData is 1 of type number
+PASS: eventData is true of type boolean
+PASS: eventData is 1 of type string
+PASS: eventData is [object Object] of type object
+PASS: eventData is [object Object] of type object
+PASS: eventData is [object Object] of type object
+PASS: eventData is [object Object] of type object
+PASS: eventData is [object Object] of type object
+PASS: eventData is [object Object] of type object
+PASS: eventData is [object Object] of type object
+PASS: eventData is [object Object] of type object
+PASS: eventData is [object Object] of type object
+PASS: eventData is of type object
+PASS: eventData is a,a,b,a,b of type object
+PASS: eventData is a,a,b,[object Object] of type object
+PASS: eventData is 1,2,3 of type object
+PASS: eventData is ,,1 of type object
+PASS: eventData is 2009-02-13T23:31:30.000Z of type object
+PASS: eventData is [object Object] of type object
+PASS: eventData is true of type object
+PASS: eventData is false of type object
+PASS: eventData is gnirts of type object
+PASS: eventData is 42 of type object
+PASS: eventData is === to eventData.self
+PASS: eventData is === to eventData[0]
+PASS: eventData.graph1 is === to eventData.graph2
+PASS: eventData[0] is === to eventData[1]
+

@@ -1,0 +1,2 @@
+CONSOLE MESSAGE: line 13: Uncaught ReferenceError: GCController is not defined
+Test passes if it does not crash. 

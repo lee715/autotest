@@ -1,0 +1,4 @@
+CONSOLE MESSAGE: line 92: Uncaught TypeError: Cannot set property 'timing' of undefined
+This test dumps all of the properties that are reachable from the window.performance object, along with their types.
+
+

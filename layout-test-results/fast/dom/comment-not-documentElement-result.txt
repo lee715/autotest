@@ -1,0 +1,7 @@
+layer at (0,0) size 384x542
+  RenderView at (0,0) size 384x542
+layer at (0,0) size 384x542
+  RenderBlock {HTML} at (0,0) size 384x542
+    RenderBody {BODY} at (8,8) size 368x526
+      RenderText {#text} at (0,0) size 60x19
+        text run at (0,0) width 60: "SUCESS"

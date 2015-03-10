@@ -1,0 +1,2 @@
+CONSOLE MESSAGE: line 20: Uncaught ReferenceError: internals is not defined
+

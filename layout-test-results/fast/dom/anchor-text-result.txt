@@ -1,0 +1,14 @@
+layer at (0,0) size 384x542
+  RenderView at (0,0) size 384x542
+layer at (0,0) size 384x542
+  RenderBlock {HTML} at (0,0) size 384x542
+    RenderBody {BODY} at (8,8) size 368x526
+      RenderInline {A} at (0,0) size 255x19 [color=#0000EE]
+        RenderInline {B} at (0,0) size 255x19
+          RenderText {#text} at (0,0) size 255x19
+            text run at (0,0) width 255: "the second copy should not be bold"
+      RenderText {#text} at (254,0) size 5x19
+        text run at (254,0) width 5: " "
+      RenderText {#text} at (258,0) size 338x38
+        text run at (258,0) width 80: "the second"
+        text run at (0,19) width 171: "copy should not be bold"

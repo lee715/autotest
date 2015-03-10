@@ -1,0 +1,19 @@
+This tests that Text is constructable.
+
+On success, you will see a series of "PASS" messages, followed by "TEST COMPLETE".
+
+
+FAIL new Text("one").data should be one. Threw exception TypeError: Illegal constructor
+FAIL new Text().data should be . Threw exception TypeError: Illegal constructor
+FAIL new Text("two").ownerDocument should be [object HTMLDocument]. Threw exception TypeError: Illegal constructor
+FAIL typeof new Text should be object. Threw exception TypeError: Illegal constructor
+FAIL Object.prototype.toString.call(new Text) should be [object Text]. Threw exception TypeError: Illegal constructor
+FAIL new Text instanceof Text should be true. Threw exception TypeError: Illegal constructor
+FAIL Object.getPrototypeOf(new Text) should be [object Object]. Threw exception TypeError: Illegal constructor
+FAIL new innerWindow.Text("three").ownerDocument should be [object HTMLDocument]. Threw exception TypeError: Illegal constructor
+FAIL new innerWindow.Text instanceof innerWindow.Text should be true. Threw exception TypeError: Illegal constructor
+FAIL Object.getPrototypeOf(new innerWindow.Text) should be [object Object]. Threw exception TypeError: Illegal constructor
+PASS successfullyParsed is true
+
+TEST COMPLETE
+

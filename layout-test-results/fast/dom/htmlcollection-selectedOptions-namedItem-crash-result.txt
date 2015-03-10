@@ -1,0 +1,11 @@
+Makes sure HTMLCollection.namedItem() does not crash for collection of selected options.
+
+On success, you will see a series of "PASS" messages, followed by "TEST COMPLETE".
+
+
+This test passes if it does not crash.
+FAIL options.namedItem("test") should be null (of type object). Was undefined (of type undefined).
+PASS successfullyParsed is true
+
+TEST COMPLETE
+

@@ -1,0 +1,6 @@
+CONSOLE MESSAGE: line 26: Uncaught TypeError: Object [object Object] has no method 'setCloseRemainingWindowsWhenComplete'
+CONSOLE MESSAGE: line 6: Uncaught TypeError: Cannot read property 'width' of undefined
+FAIL successfullyParsed should be true (of type boolean). Was undefined (of type undefined).
+
+TEST COMPLETE
+

@@ -1,0 +1,8 @@
+This tests XMLSerializer.serializeToString() on a newly created DocumentType node does not throw since the node has an associated document.
+
+On success, you will see a series of "PASS" messages, followed by "TEST COMPLETE".
+
+
+FAIL text = serializer.serializeToString(docType) should not throw exception. Threw exception Error: INVALID_ACCESS_ERR: DOM Exception 15.
+FAIL text should be <!DOCTYPE aDocTypeName PUBLIC "aPublicID" "aSystemID"> (of type string). Was undefined (of type undefined).
+

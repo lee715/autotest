@@ -1,0 +1,10 @@
+PASS document.querySelector('div SPAN').textContent is 'lower'
+PASS document.querySelector('div p').textContent is 'UPPER'
+FAIL document.getElementById('lower1').matches('div SPAN') should be true. Threw exception TypeError: Object #<HTMLSpanElement> has no method 'matches'
+FAIL document.getElementById('UPPER1').matches('div p') should be true. Threw exception TypeError: Object #<HTMLParagraphElement> has no method 'matches'
+PASS document.getElementById('lower1').webkitMatchesSelector('div SPAN') is true
+PASS document.getElementById('UPPER1').webkitMatchesSelector('div p') is true
+PASS successfullyParsed is true
+
+TEST COMPLETE
+

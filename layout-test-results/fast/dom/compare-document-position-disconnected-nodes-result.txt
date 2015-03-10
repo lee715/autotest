@@ -1,0 +1,10 @@
+FAIL a.compareDocumentPosition(b) & Node.DOCUMENT_POSITION_DISCONNECTED should be 1. Was 0.
+FAIL b.compareDocumentPosition(a) & Node.DOCUMENT_POSITION_DISCONNECTED should be 1. Was 0.
+FAIL a.compareDocumentPosition(b) & Node.DOCUMENT_POSITION_IMPLEMENTATION_SPECIFIC should be 32. Was 0.
+FAIL b.compareDocumentPosition(a) & Node.DOCUMENT_POSITION_IMPLEMENTATION_SPECIFIC should be 32. Was 0.
+PASS a.compareDocumentPosition(b) & Node.DOCUMENT_POSITION_PRECEDING is 0
+FAIL a.compareDocumentPosition(b) & Node.DOCUMENT_POSITION_FOLLOWING should be 0. Was 4.
+PASS successfullyParsed is true
+
+TEST COMPLETE
+Comparing the positions of two disconnected nodes should result in DOCUMENT_POSITION_DISCONNECTED.

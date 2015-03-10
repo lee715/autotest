@@ -1,0 +1,14 @@
+Tests that the navigator.geolocation object is present.
+
+On success, you will see a series of "PASS" messages, followed by "TEST COMPLETE".
+
+
+PASS typeof navigator.geolocation == 'object' is true
+PASS hasGeolocationProperty() is true
+PASS 'geolocation' in navigator is true
+FAIL navigator.hasOwnProperty('geolocation') should be false. Was true.
+FAIL navigator.__proto__.hasOwnProperty('geolocation') should be true. Was false.
+PASS successfullyParsed is true
+
+TEST COMPLETE
+

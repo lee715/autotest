@@ -1,0 +1,7 @@
+HTMLCollection namedItem Method
+
+FAIL form.elements.namedItem("any") should be null (of type object). Was undefined (of type undefined).
+PASS successfullyParsed is true
+
+TEST COMPLETE
+

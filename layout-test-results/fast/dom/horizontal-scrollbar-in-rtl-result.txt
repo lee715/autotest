@@ -1,0 +1,5 @@
+CONSOLE MESSAGE: line 50: Uncaught TypeError: Object [object Object] has no method 'zoomPageIn'
+Lorem ipsum dolor sit amet, consectetur adipisicing elit, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua. Ut enim ad minim veniam, quis nostrud exercitation ullamco laboris nisi ut aliquip ex ea commodo consequat. Duis aute irure dolor in reprehenderit in voluptate velit esse cillum dolore eu fugiat nulla pariatur. Excepteur sint occaecat cupidatat non proident, sunt in culpa qui officia deserunt mollit anim id est laborum."
+original scroll x for RTL page : Failure, actual: 3626; expected: 0
+horizontal scroll: : Failure, actual: 3626; expected: -1000
+continuously call window.scrollX : Failure, actual: 3626; expected: -1000

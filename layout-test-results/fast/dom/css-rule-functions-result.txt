@@ -1,0 +1,32 @@
+layer at (0,0) size 384x542
+  RenderView at (0,0) size 384x542
+layer at (0,0) size 384x287
+  RenderBlock {HTML} at (0,0) size 384x287
+    RenderBody {BODY} at (8,13) size 368x266
+      RenderBlock {PRE} at (0,0) size 368x0
+      RenderBlock (anonymous) at (0,0) size 368x76
+        RenderText {#text} at (0,0) size 357x76
+          text run at (0,0) width 340: "This tests that insertRule, deleteRule, and the IE"
+          text run at (0,19) width 342: "extensions addRule and removeRule update the"
+          text run at (0,38) width 341: "style when rules are added and removed. It also"
+          text run at (0,57) width 357: "tests that disabling a stylesheet updates the style."
+      RenderBlock {DIV} at (0,76) size 368x38
+        RenderText {#text} at (0,0) size 344x38
+          text run at (0,0) width 344: "This is div1. This text should not be red because"
+          text run at (0,19) width 199: "that rule has been removed."
+      RenderBlock {DIV} at (0,114) size 368x38 [color=#0000FF]
+        RenderText {#text} at (0,0) size 351x38
+          text run at (0,0) width 337: "This is div2. This text should be blue because a"
+          text run at (0,19) width 351: "matching rule with that property has been added."
+      RenderBlock {DIV} at (0,152) size 368x38
+        RenderText {#text} at (0,0) size 367x38
+          text run at (0,0) width 367: "This is div3. This text should not be yellow because"
+          text run at (0,19) width 199: "that rule has been removed."
+      RenderBlock {DIV} at (0,190) size 368x38 [color=#008000]
+        RenderText {#text} at (0,0) size 351x38
+          text run at (0,0) width 347: "This is div4. This text should be green because a"
+          text run at (0,19) width 351: "matching rule with that property has been added."
+      RenderBlock {DIV} at (0,228) size 368x38
+        RenderText {#text} at (0,0) size 366x38
+          text run at (0,0) width 366: "This is div3. This text should not be purple because"
+          text run at (0,19) width 335: "the stylesheet with that rule has been disabled."

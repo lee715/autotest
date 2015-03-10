@@ -1,0 +1,13 @@
+Test the JavaScript property descriptor of the name getter.
+
+On success, you will see a series of "PASS" messages, followed by "TEST COMPLETE".
+
+
+FAIL Object.getOwnPropertyDescriptor(document.body.dataset, 'webkitRocks').configurable should be false. Threw exception TypeError: Cannot read property 'configurable' of undefined
+FAIL Object.getOwnPropertyDescriptor(document.body.dataset, 'webkitRocks').enumerable should be false. Threw exception TypeError: Cannot read property 'enumerable' of undefined
+FAIL Object.getOwnPropertyDescriptor(document.body.dataset, 'webkitRocks').writable should be false. Threw exception TypeError: Cannot read property 'writable' of undefined
+FAIL Object.getOwnPropertyDescriptor(document.body.dataset, 'webkitRocks').value should be yes. Threw exception TypeError: Cannot read property 'value' of undefined
+PASS successfullyParsed is true
+
+TEST COMPLETE
+

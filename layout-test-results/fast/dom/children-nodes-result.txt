@@ -1,0 +1,105 @@
+layer at (0,0) size 384x639
+  RenderView at (0,0) size 384x542
+layer at (0,0) size 384x639
+  RenderBlock {HTML} at (0,0) size 384x639
+    RenderBody {BODY} at (8,8) size 368x623
+      RenderBlock {DIV} at (0,0) size 368x129 [border: (1px solid #FF0000)]
+        RenderBlock {P} at (1,17) size 366x95
+          RenderText {#text} at (0,0) size 364x95
+            text run at (0,0) width 364: "This test verifies that JavaScript returns only direct"
+            text run at (0,19) width 304: "descendent element nodes in the 'children'"
+            text run at (0,38) width 202: "collection (an IE extension). "
+            text run at (201,38) width 159: "We also verify that the"
+            text run at (0,57) width 358: "'childNodes' collection contains direct descendent"
+            text run at (0,76) width 266: "nodes of any type (text, element, etc.)"
+      RenderBlock {DIV} at (0,129) size 368x95
+        RenderBlock {DIV} at (0,0) size 368x19
+          RenderInline {B} at (0,0) size 28x19
+            RenderText {#text} at (0,0) size 28x19
+              text run at (0,0) width 28: "test"
+          RenderText {#text} at (27,0) size 5x19
+            text run at (27,0) width 5: " "
+          RenderInline {U} at (0,0) size 63x19
+            RenderText {#text} at (31,0) size 63x19
+              text run at (31,0) width 63: "non bold"
+          RenderText {#text} at (93,0) size 5x19
+            text run at (93,0) width 5: " "
+          RenderInline {I} at (0,0) size 34x19
+            RenderText {#text} at (97,0) size 34x19
+              text run at (97,0) width 34: "italic"
+          RenderText {#text} at (130,0) size 32x19
+            text run at (130,0) width 32: " test"
+        RenderBlock {DIV} at (0,19) size 368x19
+          RenderText {#text} at (0,0) size 66x19
+            text run at (0,0) width 66: "plain text"
+        RenderBlock {DIV} at (0,38) size 368x19
+          RenderText {#text} at (0,0) size 85x19
+            text run at (0,0) width 85: "another line"
+        RenderBlock {DIV} at (0,57) size 368x19
+          RenderText {#text} at (0,0) size 110x19
+            text run at (0,0) width 110: "yet another line"
+        RenderBlock {DIV} at (0,76) size 368x19
+          RenderInline {SPAN} at (0,0) size 60x19
+            RenderText {#text} at (0,0) size 34x19
+              text run at (0,0) width 34: "fifth "
+            RenderInline {B} at (0,0) size 27x19
+              RenderText {#text} at (33,0) size 27x19
+                text run at (33,0) width 27: "line"
+      RenderBlock {DIV} at (0,224) size 368x399
+        RenderBR {BR} at (0,0) size 0x19
+        RenderText {#text} at (0,19) size 364x38
+          text run at (0,19) width 364: "Results: children.length = 5 (should be 5 DIV nodes"
+          text run at (0,38) width 48: "below)"
+        RenderBR {BR} at (47,53) size 1x0
+        RenderText {#text} at (0,57) size 119x19
+          text run at (0,57) width 119: "  node: DIV (one)"
+        RenderBR {BR} at (118,72) size 1x0
+        RenderText {#text} at (0,76) size 118x19
+          text run at (0,76) width 118: "  node: DIV (two)"
+        RenderBR {BR} at (117,91) size 1x0
+        RenderText {#text} at (0,95) size 129x19
+          text run at (0,95) width 129: "  node: DIV (three)"
+        RenderBR {BR} at (128,110) size 1x0
+        RenderText {#text} at (0,114) size 121x19
+          text run at (0,114) width 121: "  node: DIV (four)"
+        RenderBR {BR} at (120,129) size 1x0
+        RenderText {#text} at (0,133) size 118x19
+          text run at (0,133) width 118: "  node: DIV (five)"
+        RenderBR {BR} at (117,148) size 1x0
+        RenderBR {BR} at (0,152) size 0x19
+        RenderText {#text} at (0,171) size 366x19
+          text run at (0,171) width 366: "childNodes.length = 11 (should be 11 nodes below)"
+        RenderBR {BR} at (365,186) size 1x0
+        RenderText {#text} at (0,190) size 175x19
+          text run at (0,190) width 175: "  node: #text (undefined)"
+        RenderBR {BR} at (174,205) size 1x0
+        RenderText {#text} at (0,209) size 119x19
+          text run at (0,209) width 119: "  node: DIV (one)"
+        RenderBR {BR} at (118,224) size 1x0
+        RenderText {#text} at (0,228) size 175x19
+          text run at (0,228) width 175: "  node: #text (undefined)"
+        RenderBR {BR} at (174,243) size 1x0
+        RenderText {#text} at (0,247) size 118x19
+          text run at (0,247) width 118: "  node: DIV (two)"
+        RenderBR {BR} at (117,262) size 1x0
+        RenderText {#text} at (0,266) size 175x19
+          text run at (0,266) width 175: "  node: #text (undefined)"
+        RenderBR {BR} at (174,281) size 1x0
+        RenderText {#text} at (0,285) size 129x19
+          text run at (0,285) width 129: "  node: DIV (three)"
+        RenderBR {BR} at (128,300) size 1x0
+        RenderText {#text} at (0,304) size 175x19
+          text run at (0,304) width 175: "  node: #text (undefined)"
+        RenderBR {BR} at (174,319) size 1x0
+        RenderText {#text} at (0,323) size 121x19
+          text run at (0,323) width 121: "  node: DIV (four)"
+        RenderBR {BR} at (120,338) size 1x0
+        RenderText {#text} at (0,342) size 175x19
+          text run at (0,342) width 175: "  node: #text (undefined)"
+        RenderBR {BR} at (174,357) size 1x0
+        RenderText {#text} at (0,361) size 118x19
+          text run at (0,361) width 118: "  node: DIV (five)"
+        RenderBR {BR} at (117,376) size 1x0
+        RenderText {#text} at (0,380) size 175x19
+          text run at (0,380) width 175: "  node: #text (undefined)"
+        RenderBR {BR} at (174,395) size 1x0

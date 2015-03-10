@@ -1,0 +1,2 @@
+CONSOLE MESSAGE: line 15: Uncaught ReferenceError: GCController is not defined
+PASS. WebKit didn't crash.

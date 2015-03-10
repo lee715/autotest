@@ -1,0 +1,8 @@
+CONSOLE MESSAGE: line 41: Uncaught TypeError: Object [object Object] has no method 'setPageVisibility'
+Bug 98474: Throttle DOM timers on hidden pages.
+
+On success, you will see a series of "PASS" messages, followed by "TEST COMPLETE".
+
+
+PASS timerIntervalWhilePageVisible is within 20 of 100
+This test measures the time taken to fire a 100ms DOM Timer when the page visibility is set to "visible", "hidden" and then back to "visible". Due to hidden page timer throttling, the timer should fire close to 1s when page is hidden. And it should fire close to 100ms, when the page is visible.

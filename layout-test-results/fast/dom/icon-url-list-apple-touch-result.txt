@@ -1,0 +1,3 @@
+CONSOLE MESSAGE: line 16: Uncaught TypeError: Cannot call method 'allIconURLs' of undefined
+Tests that all favicons and touch icons (if ENABLE(TOUCH_ICON_LOADING)) are in document.iconURLs()
+

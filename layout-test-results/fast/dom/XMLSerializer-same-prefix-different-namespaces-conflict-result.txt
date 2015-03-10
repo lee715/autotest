@@ -1,0 +1,1 @@
+<x:y xmlns:x="ns1" x:z="val" xmlns:x="ns2" w="val" xmlns="ns3"/>

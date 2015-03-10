@@ -1,0 +1,41 @@
+layer at (0,0) size 384x542
+  RenderView at (0,0) size 384x542
+layer at (0,0) size 384x304
+  RenderBlock {html} at (0,0) size 384x304
+    RenderBody {body} at (8,16) size 368x280
+      RenderBlock {div} at (0,0) size 368x280
+        RenderBlock {p} at (0,0) size 368x57
+          RenderText {#text} at (0,0) size 317x57
+            text run at (0,0) width 317: "This is a simple test of both importNode and"
+            text run at (0,19) width 295: "cloneNode, created from an example that"
+            text run at (0,38) width 254: "demonstrated a bug in importNode."
+        RenderBlock {div} at (0,73) size 368x19 [bgcolor=#FFFF00]
+          RenderText {#text} at (0,0) size 128x19
+            text run at (0,0) width 128: "The original node:"
+        RenderBlock {div} at (0,92) size 368x50 [bgcolor=#7F7FFF]
+          RenderBlock (anonymous) at (3,3) size 362x19
+            RenderText {#text} at (0,0) size 62x19
+              text run at (0,0) width 62: "Outer bit"
+          RenderBlock {div} at (6,25) size 356x19 [color=#FFFF00] [bgcolor=#0000FF]
+            RenderText {#text} at (0,0) size 63x19
+              text run at (0,0) width 63: "Inner bit."
+        RenderBlock {div} at (0,142) size 368x19 [bgcolor=#FFFF00]
+          RenderText {#text} at (0,0) size 188x19
+            text run at (0,0) width 188: "Copied with importNode():"
+        RenderBlock {div} at (0,161) size 368x50 [bgcolor=#7F7FFF]
+          RenderBlock (anonymous) at (3,3) size 362x19
+            RenderText {#text} at (0,0) size 62x19
+              text run at (0,0) width 62: "Outer bit"
+          RenderBlock {div} at (6,25) size 356x19 [color=#FFFF00] [bgcolor=#0000FF]
+            RenderText {#text} at (0,0) size 63x19
+              text run at (0,0) width 63: "Inner bit."
+        RenderBlock {div} at (0,211) size 368x19 [bgcolor=#FFFF00]
+          RenderText {#text} at (0,0) size 180x19
+            text run at (0,0) width 180: "Copied with cloneNode():"
+        RenderBlock {div} at (0,230) size 368x50 [bgcolor=#7F7FFF]
+          RenderBlock (anonymous) at (3,3) size 362x19
+            RenderText {#text} at (0,0) size 62x19
+              text run at (0,0) width 62: "Outer bit"
+          RenderBlock {div} at (6,25) size 356x19 [color=#FFFF00] [bgcolor=#0000FF]
+            RenderText {#text} at (0,0) size 63x19
+              text run at (0,0) width 63: "Inner bit."

@@ -1,0 +1,10 @@
+layer at (0,0) size 384x542
+  RenderView at (0,0) size 384x542
+layer at (0,0) size 384x542
+  RenderBlock {HTML} at (0,0) size 384x542
+    RenderBody {BODY} at (8,8) size 368x526
+      RenderBlock {P} at (0,0) size 368x19
+        RenderText {#text} at (0,0) size 247x19
+          text run at (0,0) width 247: "Should see a light green rectangle:"
+      RenderBlock {DIV} at (0,35) size 368x100
+        RenderImage {IMG} at (0,0) size 100x100
